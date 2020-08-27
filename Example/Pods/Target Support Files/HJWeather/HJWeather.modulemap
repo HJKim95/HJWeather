@@ -1,0 +1,6 @@
+framework module HJWeather {
+  umbrella header "HJWeather-umbrella.h"
+
+  export *
+  module * { export * }
+}

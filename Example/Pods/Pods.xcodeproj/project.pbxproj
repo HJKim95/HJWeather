@@ -1,0 +1,772 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E56B6EF8CBD9F3DC15234E861BE92CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		2A2677379EC07B13313D8FD7674AF45D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		39B1851C7851A42FBE71A119DC5F4D20 /* HJWeather-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE1128E79B8CE3F0BEE5A2F02F051E8 /* HJWeather-dummy.m */; };
+		6CE360FF2C0FFA6951D367B19E3E91BE /* Pods-HJWeather_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563C671CD48E83F2B4E50EABC85E886 /* Pods-HJWeather_Tests-dummy.m */; };
+		72ED400F70F85B5023466E543BECB563 /* Pods-HJWeather_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E940C059F5AB353BF2E0E34D2950E /* Pods-HJWeather_Example-dummy.m */; };
+		7AAA7FDB7EC0BAF080560F18206D0B94 /* Pods-HJWeather_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D223D6B6BF6711470289895BE8AFE11 /* Pods-HJWeather_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E0AF85623AF9CE3AA6AB0A9903147C4 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37714F10306CC9AEEFB1128087FFED7C /* ReplaceMe.swift */; };
+		A299FED1D47D021163DA6996EF6280F5 /* Pods-HJWeather_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 94DA9FFDF871C7A7AECC172D31CCC581 /* Pods-HJWeather_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5EBC46DDDDD053B0B0BA00E22DD83AE /* HJWeather-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FC86E8A65AC533E92DF0C26E253FE436 /* HJWeather-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7EF40D20C187915B6E26CE95CA1D738 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D6D7EBC9CEBBCA814ABC9026F5BBF6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3F3C68922DAA2B5F197EA8989E367C5;
+			remoteInfo = HJWeather;
+		};
+		A9D3A5A52D7CBB68D9B013419A9D59DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AE12471B394D0E5060560F234D7B1F6;
+			remoteInfo = "Pods-HJWeather_Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02BE2C85EABDBD3E517C68A074A3D483 /* Pods-HJWeather_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HJWeather_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		03FF5096799B85D52E7040B11523EBDD /* Pods-HJWeather_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HJWeather_Example-Info.plist"; sourceTree = "<group>"; };
+		0563C671CD48E83F2B4E50EABC85E886 /* Pods-HJWeather_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HJWeather_Tests-dummy.m"; sourceTree = "<group>"; };
+		1D223D6B6BF6711470289895BE8AFE11 /* Pods-HJWeather_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HJWeather_Example-umbrella.h"; sourceTree = "<group>"; };
+		224B52897DBD8CB6066F46270A24E30F /* Pods-HJWeather_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HJWeather_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		2531EC785ED69BE189E0C0F35AA563FE /* HJWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HJWeather.debug.xcconfig; sourceTree = "<group>"; };
+		275E940C059F5AB353BF2E0E34D2950E /* Pods-HJWeather_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HJWeather_Example-dummy.m"; sourceTree = "<group>"; };
+		28262149B98A99687B0FF95FBA7928D8 /* HJWeather-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HJWeather-Info.plist"; sourceTree = "<group>"; };
+		307AEEBB2B24BEB172586ECB0642639E /* Pods-HJWeather_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HJWeather_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		30DD6E61F6BC2A545618AE775DB673EA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		334F3AE001F341D175D2AD1F460802B6 /* Pods-HJWeather_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HJWeather_Tests.modulemap"; sourceTree = "<group>"; };
+		37714F10306CC9AEEFB1128087FFED7C /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = HJWeather/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		38701C6DBE125A7B5BEB97392362B699 /* HJWeather.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HJWeather.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3D9ACC25B32D28914BFD8CEEB9C0AE0E /* Pods-HJWeather_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HJWeather_Tests-Info.plist"; sourceTree = "<group>"; };
+		5404F13F0F10A4FC62D2E9B83D555909 /* Pods_HJWeather_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HJWeather_Example.framework; path = "Pods-HJWeather_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B0FCE1C1E05A5B7A4BC6183F033380 /* Pods-HJWeather_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HJWeather_Example-frameworks.sh"; sourceTree = "<group>"; };
+		7DD49E682A64B7DC47B4DDA20713A46E /* Pods-HJWeather_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HJWeather_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		80DC84315CCCDC1B6C556744EC3D39AA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		828BDACB4037A46084BE412CA3F59C19 /* Pods-HJWeather_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HJWeather_Example.modulemap"; sourceTree = "<group>"; };
+		8CE1128E79B8CE3F0BEE5A2F02F051E8 /* HJWeather-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HJWeather-dummy.m"; sourceTree = "<group>"; };
+		94DA9FFDF871C7A7AECC172D31CCC581 /* Pods-HJWeather_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HJWeather_Tests-umbrella.h"; sourceTree = "<group>"; };
+		979201429266711A5DEE89C3A8992CB9 /* Pods-HJWeather_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HJWeather_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E4A02A321B6493FF38A3C7FF9A861E4 /* Pods_HJWeather_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HJWeather_Tests.framework; path = "Pods-HJWeather_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EBE23744D6E16B6D4F7CC4A70F7C171 /* HJWeather.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HJWeather.modulemap; sourceTree = "<group>"; };
+		A2F705B8C0523F540CCF17BCE870EDE9 /* HJWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HJWeather.release.xcconfig; sourceTree = "<group>"; };
+		B911CB726F66E78A1FC7E6E3ACE83111 /* HJWeather-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HJWeather-prefix.pch"; sourceTree = "<group>"; };
+		CD74987FC5282EC8E43AEB452C3AB9D6 /* Pods-HJWeather_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HJWeather_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		F3EC187C9EAAC7B462A775994C88E8C9 /* Pods-HJWeather_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HJWeather_Example.release.xcconfig"; sourceTree = "<group>"; };
+		FC86E8A65AC533E92DF0C26E253FE436 /* HJWeather-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HJWeather-umbrella.h"; sourceTree = "<group>"; };
+		FCC5E4693386355EC9DFD01909EFC718 /* Pods-HJWeather_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HJWeather_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FF29061AE8FE3152466C7FAAA2298FCA /* HJWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HJWeather.framework; path = HJWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		214D3177E0B37699070E438EDF4936DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7EF40D20C187915B6E26CE95CA1D738 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E2318D01DD8E365AB5869ED04499D2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A2677379EC07B13313D8FD7674AF45D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87BB9432AA8D9B1FF2F61FA92A84768E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E56B6EF8CBD9F3DC15234E861BE92CF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1011DD0FFF7846414D7C1E5B2D50C29C /* Pods-HJWeather_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				334F3AE001F341D175D2AD1F460802B6 /* Pods-HJWeather_Tests.modulemap */,
+				FCC5E4693386355EC9DFD01909EFC718 /* Pods-HJWeather_Tests-acknowledgements.markdown */,
+				307AEEBB2B24BEB172586ECB0642639E /* Pods-HJWeather_Tests-acknowledgements.plist */,
+				0563C671CD48E83F2B4E50EABC85E886 /* Pods-HJWeather_Tests-dummy.m */,
+				3D9ACC25B32D28914BFD8CEEB9C0AE0E /* Pods-HJWeather_Tests-Info.plist */,
+				94DA9FFDF871C7A7AECC172D31CCC581 /* Pods-HJWeather_Tests-umbrella.h */,
+				02BE2C85EABDBD3E517C68A074A3D483 /* Pods-HJWeather_Tests.debug.xcconfig */,
+				979201429266711A5DEE89C3A8992CB9 /* Pods-HJWeather_Tests.release.xcconfig */,
+			);
+			name = "Pods-HJWeather_Tests";
+			path = "Target Support Files/Pods-HJWeather_Tests";
+			sourceTree = "<group>";
+		};
+		1EBCF99223D11337EC3BA1C091A1EA01 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				38701C6DBE125A7B5BEB97392362B699 /* HJWeather.podspec */,
+				80DC84315CCCDC1B6C556744EC3D39AA /* LICENSE */,
+				30DD6E61F6BC2A545618AE775DB673EA /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		4442ECB24B72BE10D0C71E9627B47952 /* HJWeather */ = {
+			isa = PBXGroup;
+			children = (
+				37714F10306CC9AEEFB1128087FFED7C /* ReplaceMe.swift */,
+				1EBCF99223D11337EC3BA1C091A1EA01 /* Pod */,
+				FD62EAA459B6F571567DE6BDE8D03B99 /* Support Files */,
+			);
+			name = HJWeather;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		68BC1A4BF64DBEBB2EB55E389E98ED30 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A4BF066435F97127E4B6C7E30582805A /* Pods-HJWeather_Example */,
+				1011DD0FFF7846414D7C1E5B2D50C29C /* Pods-HJWeather_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A4BF066435F97127E4B6C7E30582805A /* Pods-HJWeather_Example */ = {
+			isa = PBXGroup;
+			children = (
+				828BDACB4037A46084BE412CA3F59C19 /* Pods-HJWeather_Example.modulemap */,
+				7DD49E682A64B7DC47B4DDA20713A46E /* Pods-HJWeather_Example-acknowledgements.markdown */,
+				CD74987FC5282EC8E43AEB452C3AB9D6 /* Pods-HJWeather_Example-acknowledgements.plist */,
+				275E940C059F5AB353BF2E0E34D2950E /* Pods-HJWeather_Example-dummy.m */,
+				65B0FCE1C1E05A5B7A4BC6183F033380 /* Pods-HJWeather_Example-frameworks.sh */,
+				03FF5096799B85D52E7040B11523EBDD /* Pods-HJWeather_Example-Info.plist */,
+				1D223D6B6BF6711470289895BE8AFE11 /* Pods-HJWeather_Example-umbrella.h */,
+				224B52897DBD8CB6066F46270A24E30F /* Pods-HJWeather_Example.debug.xcconfig */,
+				F3EC187C9EAAC7B462A775994C88E8C9 /* Pods-HJWeather_Example.release.xcconfig */,
+			);
+			name = "Pods-HJWeather_Example";
+			path = "Target Support Files/Pods-HJWeather_Example";
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				E41C2F606FC00947BBBE5FFCB4C465FD /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				E116192935277B5487102BB85C56CF9C /* Products */,
+				68BC1A4BF64DBEBB2EB55E389E98ED30 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E116192935277B5487102BB85C56CF9C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF29061AE8FE3152466C7FAAA2298FCA /* HJWeather.framework */,
+				5404F13F0F10A4FC62D2E9B83D555909 /* Pods_HJWeather_Example.framework */,
+				9E4A02A321B6493FF38A3C7FF9A861E4 /* Pods_HJWeather_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E41C2F606FC00947BBBE5FFCB4C465FD /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4442ECB24B72BE10D0C71E9627B47952 /* HJWeather */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		FD62EAA459B6F571567DE6BDE8D03B99 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9EBE23744D6E16B6D4F7CC4A70F7C171 /* HJWeather.modulemap */,
+				8CE1128E79B8CE3F0BEE5A2F02F051E8 /* HJWeather-dummy.m */,
+				28262149B98A99687B0FF95FBA7928D8 /* HJWeather-Info.plist */,
+				B911CB726F66E78A1FC7E6E3ACE83111 /* HJWeather-prefix.pch */,
+				FC86E8A65AC533E92DF0C26E253FE436 /* HJWeather-umbrella.h */,
+				2531EC785ED69BE189E0C0F35AA563FE /* HJWeather.debug.xcconfig */,
+				A2F705B8C0523F540CCF17BCE870EDE9 /* HJWeather.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/HJWeather";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		249A29E1D0DB9129BD62C031755A480E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A299FED1D47D021163DA6996EF6280F5 /* Pods-HJWeather_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EC2C1DFA85930248D34232B0A9624A6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AAA7FDB7EC0BAF080560F18206D0B94 /* Pods-HJWeather_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5211AE8E8DDC4459409F244AFEB41A14 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5EBC46DDDDD053B0B0BA00E22DD83AE /* HJWeather-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		43314F8C4D9026616C88583C1B6EABB0 /* Pods-HJWeather_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3584CA6A7DDF2D13851B6C68F0BE6BC5 /* Build configuration list for PBXNativeTarget "Pods-HJWeather_Tests" */;
+			buildPhases = (
+				249A29E1D0DB9129BD62C031755A480E /* Headers */,
+				2BCDB5B5DEF5B84B78DE62C6652ACEE8 /* Sources */,
+				214D3177E0B37699070E438EDF4936DB /* Frameworks */,
+				D48B06951BD765483DF832353FFB9E61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2699E000E9B3475B15E94835EFBE0557 /* PBXTargetDependency */,
+			);
+			name = "Pods-HJWeather_Tests";
+			productName = "Pods-HJWeather_Tests";
+			productReference = 9E4A02A321B6493FF38A3C7FF9A861E4 /* Pods_HJWeather_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9AE12471B394D0E5060560F234D7B1F6 /* Pods-HJWeather_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44571AF92AA985453B9889B6056239BF /* Build configuration list for PBXNativeTarget "Pods-HJWeather_Example" */;
+			buildPhases = (
+				3EC2C1DFA85930248D34232B0A9624A6 /* Headers */,
+				E35208124201500DF347EFE40ABD488B /* Sources */,
+				87BB9432AA8D9B1FF2F61FA92A84768E /* Frameworks */,
+				BA2EE91691884A1F75A161E8EAB73BEE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA0E01366199FFC39C5DF966AE9E9CFE /* PBXTargetDependency */,
+			);
+			name = "Pods-HJWeather_Example";
+			productName = "Pods-HJWeather_Example";
+			productReference = 5404F13F0F10A4FC62D2E9B83D555909 /* Pods_HJWeather_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A3F3C68922DAA2B5F197EA8989E367C5 /* HJWeather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0E65763B5CDF6B7993D646BFEA73943 /* Build configuration list for PBXNativeTarget "HJWeather" */;
+			buildPhases = (
+				5211AE8E8DDC4459409F244AFEB41A14 /* Headers */,
+				88E13EF569151C8C79C22F5EF24F7841 /* Sources */,
+				2E2318D01DD8E365AB5869ED04499D2F /* Frameworks */,
+				F8BD8272372A145D6478001B67228BDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HJWeather;
+			productName = HJWeather;
+			productReference = FF29061AE8FE3152466C7FAAA2298FCA /* HJWeather.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = E116192935277B5487102BB85C56CF9C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A3F3C68922DAA2B5F197EA8989E367C5 /* HJWeather */,
+				9AE12471B394D0E5060560F234D7B1F6 /* Pods-HJWeather_Example */,
+				43314F8C4D9026616C88583C1B6EABB0 /* Pods-HJWeather_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA2EE91691884A1F75A161E8EAB73BEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D48B06951BD765483DF832353FFB9E61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8BD8272372A145D6478001B67228BDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2BCDB5B5DEF5B84B78DE62C6652ACEE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CE360FF2C0FFA6951D367B19E3E91BE /* Pods-HJWeather_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88E13EF569151C8C79C22F5EF24F7841 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39B1851C7851A42FBE71A119DC5F4D20 /* HJWeather-dummy.m in Sources */,
+				7E0AF85623AF9CE3AA6AB0A9903147C4 /* ReplaceMe.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E35208124201500DF347EFE40ABD488B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72ED400F70F85B5023466E543BECB563 /* Pods-HJWeather_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2699E000E9B3475B15E94835EFBE0557 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-HJWeather_Example";
+			target = 9AE12471B394D0E5060560F234D7B1F6 /* Pods-HJWeather_Example */;
+			targetProxy = A9D3A5A52D7CBB68D9B013419A9D59DB /* PBXContainerItemProxy */;
+		};
+		EA0E01366199FFC39C5DF966AE9E9CFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HJWeather;
+			target = A3F3C68922DAA2B5F197EA8989E367C5 /* HJWeather */;
+			targetProxy = 2D6D7EBC9CEBBCA814ABC9026F5BBF6E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		003482F2EFC141A7293AFA03253A23FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 224B52897DBD8CB6066F46270A24E30F /* Pods-HJWeather_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HJWeather_Example/Pods-HJWeather_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HJWeather_Example/Pods-HJWeather_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		06CBFB7C71AB66C765CDEF6E24EBFC68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02BE2C85EABDBD3E517C68A074A3D483 /* Pods-HJWeather_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HJWeather_Tests/Pods-HJWeather_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HJWeather_Tests/Pods-HJWeather_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		192AC3C11E9BB690C1C8EFDB4E2151D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2F705B8C0523F540CCF17BCE870EDE9 /* HJWeather.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HJWeather/HJWeather-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HJWeather/HJWeather-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HJWeather/HJWeather.modulemap";
+				PRODUCT_MODULE_NAME = HJWeather;
+				PRODUCT_NAME = HJWeather;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		52F2B90EFDD748D36BA1E98B945AE9A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 979201429266711A5DEE89C3A8992CB9 /* Pods-HJWeather_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HJWeather_Tests/Pods-HJWeather_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HJWeather_Tests/Pods-HJWeather_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ACC7DD5884E406ADFE4718F29D92B215 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2531EC785ED69BE189E0C0F35AA563FE /* HJWeather.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HJWeather/HJWeather-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HJWeather/HJWeather-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HJWeather/HJWeather.modulemap";
+				PRODUCT_MODULE_NAME = HJWeather;
+				PRODUCT_NAME = HJWeather;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B0087CB4594321EF41619F3181FE120E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		C606C022CD9DEB160E5E8B57C12A4627 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3EC187C9EAAC7B462A775994C88E8C9 /* Pods-HJWeather_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HJWeather_Example/Pods-HJWeather_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HJWeather_Example/Pods-HJWeather_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3584CA6A7DDF2D13851B6C68F0BE6BC5 /* Build configuration list for PBXNativeTarget "Pods-HJWeather_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CBFB7C71AB66C765CDEF6E24EBFC68 /* Debug */,
+				52F2B90EFDD748D36BA1E98B945AE9A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44571AF92AA985453B9889B6056239BF /* Build configuration list for PBXNativeTarget "Pods-HJWeather_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				003482F2EFC141A7293AFA03253A23FF /* Debug */,
+				C606C022CD9DEB160E5E8B57C12A4627 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */,
+				B0087CB4594321EF41619F3181FE120E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0E65763B5CDF6B7993D646BFEA73943 /* Build configuration list for PBXNativeTarget "HJWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACC7DD5884E406ADFE4718F29D92B215 /* Debug */,
+				192AC3C11E9BB690C1C8EFDB4E2151D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

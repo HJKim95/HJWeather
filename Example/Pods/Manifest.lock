@@ -1,0 +1,16 @@
+PODS:
+  - HJWeather (0.1.0)
+
+DEPENDENCIES:
+  - HJWeather (from `../`)
+
+EXTERNAL SOURCES:
+  HJWeather:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HJWeather: 9dad21ea7a7596d141bb549dac01b8308d4f95d1
+
+PODFILE CHECKSUM: 78711bedaab78d51414439e59f5fd1d93fd5299e
+
+COCOAPODS: 1.9.1
