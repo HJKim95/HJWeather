@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0E56B6EF8CBD9F3DC15234E861BE92CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		101E95CE24F74945003E9D35 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E95CD24F74945003E9D35 /* Extension.swift */; };
 		2A2677379EC07B13313D8FD7674AF45D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		39B1851C7851A42FBE71A119DC5F4D20 /* HJWeather-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE1128E79B8CE3F0BEE5A2F02F051E8 /* HJWeather-dummy.m */; };
 		6CE360FF2C0FFA6951D367B19E3E91BE /* Pods-HJWeather_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0563C671CD48E83F2B4E50EABC85E886 /* Pods-HJWeather_Tests-dummy.m */; };
 		72ED400F70F85B5023466E543BECB563 /* Pods-HJWeather_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 275E940C059F5AB353BF2E0E34D2950E /* Pods-HJWeather_Example-dummy.m */; };
 		7AAA7FDB7EC0BAF080560F18206D0B94 /* Pods-HJWeather_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D223D6B6BF6711470289895BE8AFE11 /* Pods-HJWeather_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7E0AF85623AF9CE3AA6AB0A9903147C4 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37714F10306CC9AEEFB1128087FFED7C /* ReplaceMe.swift */; };
 		A299FED1D47D021163DA6996EF6280F5 /* Pods-HJWeather_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 94DA9FFDF871C7A7AECC172D31CCC581 /* Pods-HJWeather_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5EBC46DDDDD053B0B0BA00E22DD83AE /* HJWeather-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FC86E8A65AC533E92DF0C26E253FE436 /* HJWeather-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7EF40D20C187915B6E26CE95CA1D738 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
@@ -40,28 +40,28 @@
 		02BE2C85EABDBD3E517C68A074A3D483 /* Pods-HJWeather_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HJWeather_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		03FF5096799B85D52E7040B11523EBDD /* Pods-HJWeather_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HJWeather_Example-Info.plist"; sourceTree = "<group>"; };
 		0563C671CD48E83F2B4E50EABC85E886 /* Pods-HJWeather_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HJWeather_Tests-dummy.m"; sourceTree = "<group>"; };
+		101E95CD24F74945003E9D35 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		1D223D6B6BF6711470289895BE8AFE11 /* Pods-HJWeather_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HJWeather_Example-umbrella.h"; sourceTree = "<group>"; };
 		224B52897DBD8CB6066F46270A24E30F /* Pods-HJWeather_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HJWeather_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2531EC785ED69BE189E0C0F35AA563FE /* HJWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HJWeather.debug.xcconfig; sourceTree = "<group>"; };
 		275E940C059F5AB353BF2E0E34D2950E /* Pods-HJWeather_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HJWeather_Example-dummy.m"; sourceTree = "<group>"; };
 		28262149B98A99687B0FF95FBA7928D8 /* HJWeather-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HJWeather-Info.plist"; sourceTree = "<group>"; };
 		307AEEBB2B24BEB172586ECB0642639E /* Pods-HJWeather_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HJWeather_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		30DD6E61F6BC2A545618AE775DB673EA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		30DD6E61F6BC2A545618AE775DB673EA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		334F3AE001F341D175D2AD1F460802B6 /* Pods-HJWeather_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HJWeather_Tests.modulemap"; sourceTree = "<group>"; };
-		37714F10306CC9AEEFB1128087FFED7C /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = HJWeather/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
-		38701C6DBE125A7B5BEB97392362B699 /* HJWeather.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HJWeather.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		38701C6DBE125A7B5BEB97392362B699 /* HJWeather.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = HJWeather.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3D9ACC25B32D28914BFD8CEEB9C0AE0E /* Pods-HJWeather_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HJWeather_Tests-Info.plist"; sourceTree = "<group>"; };
-		5404F13F0F10A4FC62D2E9B83D555909 /* Pods_HJWeather_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HJWeather_Example.framework; path = "Pods-HJWeather_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5404F13F0F10A4FC62D2E9B83D555909 /* Pods_HJWeather_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HJWeather_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B0FCE1C1E05A5B7A4BC6183F033380 /* Pods-HJWeather_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HJWeather_Example-frameworks.sh"; sourceTree = "<group>"; };
 		7DD49E682A64B7DC47B4DDA20713A46E /* Pods-HJWeather_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HJWeather_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		80DC84315CCCDC1B6C556744EC3D39AA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		80DC84315CCCDC1B6C556744EC3D39AA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		828BDACB4037A46084BE412CA3F59C19 /* Pods-HJWeather_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HJWeather_Example.modulemap"; sourceTree = "<group>"; };
 		8CE1128E79B8CE3F0BEE5A2F02F051E8 /* HJWeather-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HJWeather-dummy.m"; sourceTree = "<group>"; };
 		94DA9FFDF871C7A7AECC172D31CCC581 /* Pods-HJWeather_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HJWeather_Tests-umbrella.h"; sourceTree = "<group>"; };
 		979201429266711A5DEE89C3A8992CB9 /* Pods-HJWeather_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HJWeather_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9E4A02A321B6493FF38A3C7FF9A861E4 /* Pods_HJWeather_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HJWeather_Tests.framework; path = "Pods-HJWeather_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E4A02A321B6493FF38A3C7FF9A861E4 /* Pods_HJWeather_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HJWeather_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EBE23744D6E16B6D4F7CC4A70F7C171 /* HJWeather.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HJWeather.modulemap; sourceTree = "<group>"; };
 		A2F705B8C0523F540CCF17BCE870EDE9 /* HJWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HJWeather.release.xcconfig; sourceTree = "<group>"; };
 		B911CB726F66E78A1FC7E6E3ACE83111 /* HJWeather-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HJWeather-prefix.pch"; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		F3EC187C9EAAC7B462A775994C88E8C9 /* Pods-HJWeather_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HJWeather_Example.release.xcconfig"; sourceTree = "<group>"; };
 		FC86E8A65AC533E92DF0C26E253FE436 /* HJWeather-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HJWeather-umbrella.h"; sourceTree = "<group>"; };
 		FCC5E4693386355EC9DFD01909EFC718 /* Pods-HJWeather_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HJWeather_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		FF29061AE8FE3152466C7FAAA2298FCA /* HJWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HJWeather.framework; path = HJWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF29061AE8FE3152466C7FAAA2298FCA /* HJWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HJWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +116,14 @@
 			path = "Target Support Files/Pods-HJWeather_Tests";
 			sourceTree = "<group>";
 		};
+		101E95CC24F748D5003E9D35 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				101E95CD24F74945003E9D35 /* Extension.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		1EBCF99223D11337EC3BA1C091A1EA01 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +137,7 @@
 		4442ECB24B72BE10D0C71E9627B47952 /* HJWeather */ = {
 			isa = PBXGroup;
 			children = (
-				37714F10306CC9AEEFB1128087FFED7C /* ReplaceMe.swift */,
+				101E95CC24F748D5003E9D35 /* Classes */,
 				1EBCF99223D11337EC3BA1C091A1EA01 /* Pod */,
 				FD62EAA459B6F571567DE6BDE8D03B99 /* Support Files */,
 			);
@@ -317,6 +325,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					A3F3C68922DAA2B5F197EA8989E367C5 = {
+						LastSwiftMigration = 1160;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -376,7 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39B1851C7851A42FBE71A119DC5F4D20 /* HJWeather-dummy.m in Sources */,
-				7E0AF85623AF9CE3AA6AB0A9903147C4 /* ReplaceMe.swift in Sources */,
+				101E95CE24F74945003E9D35 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +489,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A2F705B8C0523F540CCF17BCE870EDE9 /* HJWeather.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -542,6 +556,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2531EC785ED69BE189E0C0F35AA563FE /* HJWeather.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -562,6 +577,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -622,8 +638,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

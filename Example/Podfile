@@ -2,7 +2,8 @@ use_frameworks!
 
 target 'HJWeather_Example' do
   pod 'HJWeather', :path => '../'
-
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
   target 'HJWeather_Tests' do
     inherit! :search_paths
 
