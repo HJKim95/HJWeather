@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'HJWeather_Example' do
+  pod 'HJWeather', :path => '../'
+
+  target 'HJWeather_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
