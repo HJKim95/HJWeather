@@ -6,7 +6,7 @@ osx_image: xcode11.6
 language: objective-c
 xcode_workspace: HJWeather.xcworkspace
 xcode_scheme: HJWeather-Example
-xcode_destination: platform=iOS Simulator, OS=13.0,name=iPhone 11 Pro
+xcode_destination: platform=iOS Simulator,OS=13.0,name=iPhone 11 Pro
 before_script: cd Example
 # cache: cocoapods
 # podfile: Example/Podfile
