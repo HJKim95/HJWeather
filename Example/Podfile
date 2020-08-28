@@ -1,5 +1,5 @@
 use_frameworks!
-
+platform :ios, '11.0'
 target 'HJWeather_Example' do
   pod 'HJWeather', :path => '../'
   pod 'Alamofire'

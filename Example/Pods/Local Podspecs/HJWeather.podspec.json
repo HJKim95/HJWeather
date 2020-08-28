@@ -1,8 +1,8 @@
 {
   "name": "HJWeather",
   "version": "0.1.0",
-  "summary": "A short description of HJWeather.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "Helps to use weather information in Korea",
+  "description": "Helps to use weather information in Korea, included weather and dust information.",
   "homepage": "https://github.com/HJKim95/HJWeather",
   "license": {
     "type": "MIT",
@@ -16,7 +16,18 @@
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "HJWeather/Classes/**/*"
+  "swift_versions": "5.0",
+  "source_files": "Classes/**/*",
+  "frameworks": "UIKit",
+  "dependencies": {
+    "Alamofire": [
+
+    ],
+    "SwiftyJSON": [
+
+    ]
+  },
+  "swift_version": "5.0"
 }
