@@ -291,12 +291,28 @@
 		101E95F924FCE84F003E9D35 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				101E95DD24FC90D5003E9D35 /* WeatherApiHelper.swift */,
-				101E95DE24FC90D5003E9D35 /* WeatherData.swift */,
-				101E95DF24FC90D5003E9D35 /* WeatherModel.swift */,
-				101E95F524FC929A003E9D35 /* DustApiHelper.swift */,
+				101E95FC24FD6289003E9D35 /* Helpers */,
+				101E95FD24FD628F003E9D35 /* DataModel */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		101E95FC24FD6289003E9D35 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				101E95DD24FC90D5003E9D35 /* WeatherApiHelper.swift */,
+				101E95F524FC929A003E9D35 /* DustApiHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		101E95FD24FD628F003E9D35 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				101E95DE24FC90D5003E9D35 /* WeatherData.swift */,
+				101E95DF24FC90D5003E9D35 /* WeatherModel.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		68BC1A4BF64DBEBB2EB55E389E98ED30 /* Targets Support Files */ = {
