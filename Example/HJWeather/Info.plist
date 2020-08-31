@@ -35,5 +35,16 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>날씨 정보 제공을 위한 위치정보가 필요합니다.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>날씨 정보 제공을 위한 위치정보가 필요합니다.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>날씨 정보 제공을 위한 위치정보가 필요합니다.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
