@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "HJWeather_Example.app"
+               BuildableName = "HJWeather-Example.app"
                BlueprintName = "HJWeather_Example"
                ReferencedContainer = "container:HJWeather.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "HJWeather_Example.app"
+            BuildableName = "HJWeather-Example.app"
             BlueprintName = "HJWeather_Example"
             ReferencedContainer = "container:HJWeather.xcodeproj">
          </BuildableReference>
@@ -78,7 +78,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "HJWeather_Example.app"
+            BuildableName = "HJWeather-Example.app"
             BlueprintName = "HJWeather_Example"
             ReferencedContainer = "container:HJWeather.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "HJWeather_Example.app"
+            BuildableName = "HJWeather-Example.app"
             BlueprintName = "HJWeather_Example"
             ReferencedContainer = "container:HJWeather.xcodeproj">
          </BuildableReference>
