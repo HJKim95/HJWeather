@@ -120,7 +120,7 @@ public class WeatherApiHelper {
                                 if Int(time)! < Int(timeString)! {
                                     let dateTimeString = "\(dates)\(time)"
                                     self?.weatherInfo[dateTimeString] = saved[dateTimeString]
-                                    print(self?.weatherInfo.count)
+//                                    print(self?.weatherInfo.count)
                                     completed(self!.weatherInfo)
                                 }
                             }

@@ -288,6 +288,17 @@
 			path = "Target Support Files/Pods-HJWeather_Tests";
 			sourceTree = "<group>";
 		};
+		101E95F924FCE84F003E9D35 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				101E95DD24FC90D5003E9D35 /* WeatherApiHelper.swift */,
+				101E95DE24FC90D5003E9D35 /* WeatherData.swift */,
+				101E95DF24FC90D5003E9D35 /* WeatherModel.swift */,
+				101E95F524FC929A003E9D35 /* DustApiHelper.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		68BC1A4BF64DBEBB2EB55E389E98ED30 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,10 +311,7 @@
 		6CC91B00D15F96EEC5C17D75B99E23D5 /* HJWeather */ = {
 			isa = PBXGroup;
 			children = (
-				101E95DD24FC90D5003E9D35 /* WeatherApiHelper.swift */,
-				101E95DE24FC90D5003E9D35 /* WeatherData.swift */,
-				101E95DF24FC90D5003E9D35 /* WeatherModel.swift */,
-				101E95F524FC929A003E9D35 /* DustApiHelper.swift */,
+				101E95F924FCE84F003E9D35 /* Classes */,
 				A0EB9B2D1B61A958E3C7A85F100B71A7 /* Pod */,
 				8455CB1C9B5176551B2D65EC6667E1ED /* Support Files */,
 			);
@@ -571,7 +579,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1160;
 				TargetAttributes = {
 					A3F3C68922DAA2B5F197EA8989E367C5 = {
 						LastSwiftMigration = 1160;
@@ -748,7 +756,6 @@
 			baseConfigurationReference = 224B52897DBD8CB6066F46270A24E30F /* Pods-HJWeather_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -841,7 +848,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5F6A18ACA7AC5EDF2573CF0B5ABE94D9 /* HJWeather.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -876,7 +882,6 @@
 			baseConfigurationReference = F3EC187C9EAAC7B462A775994C88E8C9 /* Pods-HJWeather_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -912,7 +917,6 @@
 			baseConfigurationReference = 979201429266711A5DEE89C3A8992CB9 /* Pods-HJWeather_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -947,7 +951,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80006EC8C559DABBBCCE1B5FFDB45BCE /* HJWeather.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -981,7 +984,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 536A365453AE2CA20A4A343DF67F77EA /* SwiftyJSON.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1015,7 +1017,6 @@
 			baseConfigurationReference = 02BE2C85EABDBD3E517C68A074A3D483 /* Pods-HJWeather_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1113,7 +1114,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C700DC4D43B2545387161C21914FE80 /* Alamofire.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1145,7 +1145,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DA8A0369218FD1039C1BD3B03C36BE6C /* Alamofire.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1178,7 +1177,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 884732D03E0660AFBF8D882402C86952 /* SwiftyJSON.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
