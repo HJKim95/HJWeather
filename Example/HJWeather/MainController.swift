@@ -189,10 +189,10 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
 
-    var ampmWeatherInfo = [Dictionary<String, String>]()
+    var ampmWeatherInfo = [futureWeatherModel]()
     
     fileprivate func getAmPmWeather() {
-        WeatherApiHelper.shared.getTomorrowWeather { [weak self] (weather) in
+        WeatherApiHelper.shared.getTomorrowWeather(future: false) { [weak self] (weather) in
             self?.ampmWeatherInfo = weather
         }
     }
@@ -375,7 +375,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: forecastid, for: indexPath) as! forecastWeatherCell
-            cell.ampmWeatherInfo = ampmWeatherInfo
+//            cell.ampmWeatherInfo = ampmWeatherInfo
             cell.futureWeatherInfo = futureWeatherInfo
             cell.forecastWeatherCollectionView.reloadData()
             return cell

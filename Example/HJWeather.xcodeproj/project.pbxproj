@@ -90,10 +90,10 @@
 			children = (
 				101E95E524FC9242003E9D35 /* todayWeatherCell.swift */,
 				101E95EA24FC9243003E9D35 /* WeatherInnerCell.swift */,
+				101E95E424FC9242003E9D35 /* tomorrowWeatherCell.swift */,
 				101E95EB24FC9243003E9D35 /* ampmCell.swift */,
 				101E95E924FC9243003E9D35 /* forecastCell.swift */,
 				101E95E624FC9243003E9D35 /* forecastWeatherCell.swift */,
-				101E95E424FC9242003E9D35 /* tomorrowWeatherCell.swift */,
 				101E95E324FC9242003E9D35 /* weatherBar.swift */,
 			);
 			name = Views;

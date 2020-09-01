@@ -427,20 +427,82 @@ public class WeatherApiHelper {
         }
     }
     
-    public func getTomorrowWeather(completed: @escaping (_ tomorrowInfo: Array<Dictionary<String, String>>) -> Void) {
+    public func getTomorrowWeather(future: Bool, completed: @escaping (_ tomorrowInfo: Array<futureWeatherModel>) -> Void) {
         getApiData(base: makeTomorrowAPIParameter(), object: .tomorrow) { (dataArray) in
-            var info = [Dictionary<String, String>]()
-            for i in 0..<dataArray.count {
-                var weather = [String:String]()
-                weather["numEf"] = dataArray[i]["numEf"].stringValue
-                weather["ta"] = dataArray[i]["ta"].stringValue
-                weather["rnSt"] = dataArray[i]["rnSt"].stringValue
-                weather["wf"] = dataArray[i]["wf"].stringValue
-                weather["wfCd"] = dataArray[i]["wfCd"].stringValue
-                weather["rnYn"] = dataArray[i]["rnYn"].stringValue
-                info.append(weather)
+            var nearFutureWeatherInfo = [futureWeatherModel]()
+            var range = 0..<dataArray.count
+            if future {
+                range = 0..<3
             }
-            completed(info)
+            for i in range {
+                var pmIndex = i * 2 + 1
+                if dataArray.count == 5 {
+                    pmIndex = i * 2
+                }
+                if !future { pmIndex = i } //내일,모레 날씨 위함.
+                    
+                let futureModel = futureWeatherModel()
+                if pmIndex - 1 >= 0 {
+                    futureModel.temp_Min = dataArray[pmIndex - 1]["ta"].stringValue
+                }
+                else {
+                    futureModel.temp_Min = ""
+                }
+                futureModel.sky = dataArray[pmIndex]["wf"].stringValue // 내일,모레 날씨 위함.
+                futureModel.temp_Max = dataArray[pmIndex]["ta"].stringValue
+                if !future { // 내일,모레 날씨 위함.
+                    if dataArray.count == 5 {
+                        if pmIndex % 2 == 1 {
+                            futureModel.temp_Min = dataArray[pmIndex]["ta"].stringValue
+                        }
+                        else {
+                            futureModel.temp_Max = dataArray[pmIndex]["ta"].stringValue
+                        }
+                    }
+                    else {
+                        if pmIndex % 2 == 1 {
+                            futureModel.temp_Max = dataArray[pmIndex]["ta"].stringValue
+                        }
+                        else {
+                            futureModel.temp_Min = dataArray[pmIndex]["ta"].stringValue
+                        }
+                    }
+                }
+                
+                futureModel.rain_text = dataArray[pmIndex]["rnSt"].stringValue
+                let isRain = dataArray[pmIndex]["rnYn"].intValue
+                if isRain == 0 {
+                    let sky = dataArray[pmIndex]["wfCd"].stringValue
+                    switch sky {
+                    case "DB01":
+                        futureModel.sky_text = "맑음"
+                    case "DB03":
+                        futureModel.sky_text = "구름많음"
+                    case "DB04":
+                        futureModel.sky_text = "흐림"
+                    default:
+                        futureModel.sky_text = "wfCD code error"
+                    }
+                }
+                else {
+                    switch isRain {
+                    case 1:
+                        futureModel.sky_text = "비"
+                    case 2:
+                        futureModel.sky_text = "비/눈"
+                    case 3:
+                        futureModel.sky_text = "눈"
+                    case 4:
+                        futureModel.sky_text = "소나기"
+                    default:
+                        futureModel.sky_text = "rnYn code error"
+                    }
+                    
+                }
+                nearFutureWeatherInfo.append(futureModel)
+            }
+            
+            completed(nearFutureWeatherInfo)
         }
     }
     

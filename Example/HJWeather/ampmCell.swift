@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HJWeather
 
 class ampmCell: UICollectionViewCell {
     
@@ -19,49 +20,48 @@ class ampmCell: UICollectionViewCell {
         }
     }
     
-    var ampmInfo: [String:String]? {
+    var ampmInfo: futureWeatherModel? {
         didSet {
-            guard let weather = ampmInfo?["wf"] else {return}
+            guard let weather = ampmInfo?.sky else {return}
             weatherLabel.text = "\(weather)"
             
-            guard let rain = ampmInfo?["rnSt"] else {return}
+            guard let rain = ampmInfo?.rain_text else {return}
             rainLabel.text = "강수확률 \(rain)%"
             
             let attributedString = NSMutableAttributedString(string: "")
             let imageAttachment = NSTextAttachment()
             
-            if let isRain = ampmInfo?["rnYn"] {
-                if Int(isRain)! == 0 {
-                    if let sky = ampmInfo?["wfCd"] {
-                        if sky == "DB01" {
-                            imageAttachment.image = UIImage(named: "SKY_D01")
-                        }
-                        else if sky == "DB03" {
-                            imageAttachment.image = UIImage(named: "SKY_D03")
-                        }
-                        else {
-                            // DB04
-                            imageAttachment.image = UIImage(named: "SKY_D04")
-                        }
-                    }
-                }
-                else if Int(isRain)! == 1 {
+            if let sky = ampmInfo?.sky_text {
+                switch sky {
+                case "맑음":
+                    imageAttachment.image = UIImage(named: "SKY_D01")
+                case "구름많음":
+                    imageAttachment.image = UIImage(named: "SKY_D03")
+                case "흐림":
+                    imageAttachment.image = UIImage(named: "SKY_D04")
+                case "비":
                     imageAttachment.image = UIImage(named: "RAIN_D01")
-                }
-                else if Int(isRain)! == 2 {
+                case "비/눈":
                     imageAttachment.image = UIImage(named: "RAIN_D02")
-                }
-                else if Int(isRain)! == 3 {
+                case "눈":
                     imageAttachment.image = UIImage(named: "RAIN_D03")
-                }
-                else {
+                case "소나기":
                     imageAttachment.image = UIImage(named: "RAIN_D04")
+                default:
+                    imageAttachment.image = UIImage(named: "")
                 }
+                
 
                 imageAttachment.bounds = CGRect(x: 0, y: -15, width: 50, height: 50)
                 attributedString.append(NSAttributedString(attachment: imageAttachment))
                 
-                guard let temp = ampmInfo?["ta"] else {return}
+                var temp = ""
+                if self.tag == 0 {
+                    temp = ampmInfo?.temp_Min as! String
+                }
+                else {
+                    temp = ampmInfo?.temp_Max as! String
+                }
                 attributedString.append((NSAttributedString(string: "\(temp)°C")))
                 weatherTempLabel.attributedText = attributedString
                 weatherTempLabel.sizeToFit()

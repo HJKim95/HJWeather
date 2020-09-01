@@ -38,7 +38,7 @@ class forecastCell: UICollectionViewCell {
             rainLabel.text = "강수확률\n\(rain)%"
             
             guard let sky = futureWeatherInfo?.sky_text else {return}
-            print(sky)
+//            print(sky)
 //            if sky == "맑음" {
 //                weatherImageView.image = UIImage(named: "SKY_D01")
 //            }

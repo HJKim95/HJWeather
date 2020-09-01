@@ -85,7 +85,11 @@ class tomorrowWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICol
         
     }
     
-    var ampmWeatherInfo = [Dictionary<String, String>]()
+    var ampmWeatherInfo = [futureWeatherModel]() {
+        didSet {
+            print(ampmWeatherInfo[0].temp_Min)
+        }
+    }
     
     var tomorrowWeatherDateTime = [String]()
     var tomorrowWeatherInfo = [String:[String:String]]()
@@ -153,6 +157,7 @@ class tomorrowWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICol
             }
             
             let info = ampmWeatherInfo[indexPath.item]
+            cell.tag = indexPath.item
             cell.ampmInfo = info
             return cell
         }

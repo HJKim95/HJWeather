@@ -10,10 +10,22 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+* iOS 10.0+ 
+* Xcode 11+
+* Swift 5.0+
 
 ## Installation
+* Manually
+* Cocoapods
 
-HJWeather is available through [CocoaPods](https://cocoapods.org). To install
+### Manually
+1. ***[Download](#)*** the source code.
+2. Extract the zip file, simply drag folder ***[Classes](#)*** into your project.
+3. Make sure ***Copy items if needed*** is checked.
+
+### Cocoapods
+
+HJLayout is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby

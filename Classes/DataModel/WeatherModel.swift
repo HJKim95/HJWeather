@@ -54,6 +54,9 @@ public class futureWeatherModel: NSObject {
     public var sky_text: String?
     public var temp_Max: Any?
     public var temp_Min: Any?
+    public var sky: String?
+    
+    public static let none = futureWeatherModel()
 }
 
 @objcMembers
