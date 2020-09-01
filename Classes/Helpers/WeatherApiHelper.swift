@@ -13,62 +13,21 @@ import SwiftyJSON
 public class WeatherApiHelper {
     public static let shared = WeatherApiHelper()
     
-    private func getCurrent(base parameter:[String:String], completed: @escaping (_ currentData:[JSON]) -> Void) {
-        print("get Current Weather")
-        let url = WeatherData.weatherApi
-        Alamofire.request(url, method: .get, parameters: parameter, encoding: URLEncoding.default, headers: nil)
-            .responseJSON { (response) in
-                switch response.result {
-                case .success :
-                    guard let weatherData = response.data else { return }
-                    let data = JSON(weatherData)
-                    let dataArray = data["response"]["body"]["items"]["item"].arrayValue
-                    completed(dataArray)
-                case .failure( _) : break
-                }
-        }
-    }
-    
-    private func getNow(base parameter:[String:String], completed: @escaping (_ currentData:[JSON]) -> Void) {
-        print("get Now Weather")
-        let url = WeatherData.nowWeatherApi
-        Alamofire.request(url, method: .get, parameters: parameter, encoding: URLEncoding.default, headers: nil)
-            .responseJSON { (response) in
-                switch response.result {
-                case .success :
-                    guard let weatherData = response.data else { return }
-                    let data = JSON(weatherData)
-                    let dataArray = data["response"]["body"]["items"]["item"].arrayValue
-                    completed(dataArray)
-                case .failure( _) : break
-                }
-        }
-    }
-    
-    private func getTomorrow(base parameter:[String:String], completed: @escaping (_ curruntData:[JSON]) -> Void) {
-        print("get Tomorrows Weather")
-        let url = WeatherData.tomorrowWeatherApi
-        Alamofire.request(url, method: .get, parameters: parameter, encoding: URLEncoding.default, headers: nil)
-            .responseJSON { (response) in
-                switch response.result {
-                case .success :
-                    guard let weatherData = response.data else { return }
-                    let data = JSON(weatherData)
-                    let dataArray = data["response"]["body"]["items"]["item"].arrayValue
-                    completed(dataArray)
-                case .failure( _) : break
-                }
-        }
-    }
-    
-    private func getForecast(base parameter:[String:String], object: String, completed: @escaping (_ curruntData:[JSON]) -> Void) {
-        print("get Forecast Weather")
+    private func getApiData(base parameter:[String:String], object: WeatherObject, completed: @escaping (_ currentData:[JSON]) -> Void) {
         var url = ""
-        if object == "weather" {
+        switch object {
+        case .now:
+            url = WeatherData.nowWeatherApi
+        case .current:
+            url = WeatherData.weatherApi
+        case .tomorrow:
+            url = WeatherData.tomorrowWeatherApi
+        case .forecastWeather:
             url = WeatherData.forecastApi
-        }
-        else if object == "temp" {
+        case .forecastTemp:
             url = WeatherData.tempApi
+        default:
+            print("URL ERROR")
         }
         
         Alamofire.request(url, method: .get, parameters: parameter, encoding: URLEncoding.default, headers: nil)
@@ -84,14 +43,16 @@ public class WeatherApiHelper {
         }
     }
     
-    var weatherInfo = [String:[String:String]]()
-    let timeGap = ["0000","0300","0600","0900","1200","1500","1800","2100"]
-    var savedInfo = [String:[String:String]]()
+    
     
     public func getTotalCurrentWeather(lat: String, long: String, completed: @escaping (_ weatherinfo: Dictionary<String,Dictionary<String,String>>) -> Void) {
         getCurrentWeather(lat: lat, long: long, reload: false) { [weak self] (weather) in
-            if let weatherInfo = weather.totalWeatherDataStringDict {
-                self?.weatherInfo = weatherInfo
+            if let weatherInfos = weather.totalWeatherDataStringDict {
+                var weatherInfo = [String:[String:String]]()
+                let timeGap = ["0000","0300","0600","0900","1200","1500","1800","2100"]
+                var savedInfo = [String:[String:String]]()
+                
+                weatherInfo = weatherInfos
                 let date = Date()
                 let dateFommater = DateFormatter()
                 dateFommater.dateFormat = "yyyyMMdd"
@@ -100,29 +61,30 @@ public class WeatherApiHelper {
                 let dates = dateString
                 guard let time = self?.getTime() else {return}
                 let timeString = "\(time)00"
-
                 // 최신화하기 전, 이전 정보 저장
-                for time in self!.timeGap {
+                for time in timeGap {
                     if Int(time)! < Int(timeString)! {
                         let dateTimeString = "\(dates)\(time)"
-                        self?.savedInfo[dateTimeString] = weatherInfo[dateTimeString]
-                        
+                        savedInfo[dateTimeString] = weatherInfo[dateTimeString]
                     }
                 }
                 
-                guard let saved = self?.savedInfo else {return}
-                if saved.count > 0 {
+                let saved = savedInfo
+                if saved.count >= 0 {
                     // 최신화
-                    self?.getCurrentWeather(lat: lat, long: long, reload: true) { [weak self] (weatherData) in
+                    self?.getCurrentWeather(lat: lat, long: long, reload: true) { (weatherData) in
                         if let reloadWeatherInfo = weatherData.totalWeatherDataStringDict {
-                            self?.weatherInfo = reloadWeatherInfo
-                            for time in self!.timeGap {
+                            weatherInfo = reloadWeatherInfo
+                            for time in timeGap {
                                 if Int(time)! < Int(timeString)! {
                                     let dateTimeString = "\(dates)\(time)"
-                                    self?.weatherInfo[dateTimeString] = saved[dateTimeString]
-//                                    print(self?.weatherInfo.count)
-                                    completed(self!.weatherInfo)
+                                    weatherInfo[dateTimeString] = saved[dateTimeString]
+                                    completed(weatherInfo)
                                 }
+                                
+                            }
+                            if saved.count == 0 {
+                                completed(weatherInfo)
                             }
                         }
                     }
@@ -132,7 +94,7 @@ public class WeatherApiHelper {
     }
     
     private func getCurrentWeather(lat: String, long: String ,reload: Bool, completed: @escaping (_ weatherinfo: WeatherModel) -> Void) {
-        getCurrent(base: makeCurrentAPIParameter(lat: lat, lon: long, reload: reload)) { [weak self] (dataArray) in
+        getApiData(base: makeCurrentAPIParameter(lat: lat, lon: long, reload: reload), object: .current) { [weak self] (dataArray) in
 
             // 날씨정보 raw code
             var weatheRawCode: [String:String] = [:]
@@ -336,7 +298,7 @@ public class WeatherApiHelper {
     }
     
     public func getNowWeather(lat: String, long: String, completed: @escaping (_ weatherinfo: WeatherModel) -> Void) {
-        getNow(base: makeNowAPIParameter(lat: lat, lon: long)) { [weak self] (dataArray) in
+        getApiData(base: makeNowAPIParameter(lat: lat, lon: long), object: .now) { [weak self] (dataArray) in
 
             // 날씨정보 raw code
             var weatheRawCode: [String:String] = [:]
@@ -466,7 +428,7 @@ public class WeatherApiHelper {
     }
     
     public func getTomorrowWeather(completed: @escaping (_ tomorrowInfo: Array<Dictionary<String, String>>) -> Void) {
-        getTomorrow(base: makeTomorrowAPIParameter()) { (dataArray) in
+        getApiData(base: makeTomorrowAPIParameter(), object: .tomorrow) { (dataArray) in
             var info = [Dictionary<String, String>]()
             for i in 0..<dataArray.count {
                 var weather = [String:String]()
@@ -483,7 +445,7 @@ public class WeatherApiHelper {
     }
     
     public func getForecastWeather(completed: @escaping (_ forecastInfo: [String:Array<Any>]) -> Void) {
-        getForecast(base: makeForecastAPIParameter(object: "weather"), object: "weather") { (dataArray) in
+        getApiData(base: makeForecastAPIParameter(object: "weather"), object: .forecastWeather) { (dataArray) in
             if dataArray.count > 0 {
                 let info: Dictionary = dataArray[0].dictionaryObject ?? ["":""]
                 let pmRainCode = ["rnSt3Pm","rnSt4Pm","rnSt5Pm","rnSt6Pm","rnSt7Pm"]
@@ -515,7 +477,7 @@ public class WeatherApiHelper {
     }
     
     public func getForecastTemp(completed: @escaping (_ forecastInfo: [String:Array<Any>]) -> Void) {
-        getForecast(base: makeForecastAPIParameter(object: "temp"), object: "temp") { (dataArray) in
+        getApiData(base: makeForecastAPIParameter(object: "temp"), object: .forecastTemp) { (dataArray) in
             if dataArray.count > 0 {
                 let info: Dictionary = dataArray[0].dictionaryObject ?? ["":""]
                 let tempMinCode = ["taMin3","taMin4","taMin5","taMin6","taMin7","taMin8","taMin9","taMin10"]

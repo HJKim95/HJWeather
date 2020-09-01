@@ -181,35 +181,11 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     
-    
-    fileprivate func getWeatherData(lat: String, long: String) {
-    
-//        let date = getDate(index: 0)
-//
-//        let defaults = UserDefaults.standard
-//        // Cache 되었는지 확인하고 없으면 새로 데이터 받아오기
-//        if let fcstDateTimeCache = defaults.array(forKey: "fcstDateTime") as? [String] {
-//            if fcstDateTimeCache.contains("\(date)\(timeGap[1])") {
-//                if let totalWeatherDataStringDictCache = defaults.dictionary(forKey: "totalWeatherDataStringDict") {
-//                    self.weatherInfo = totalWeatherDataStringDictCache as! [String : [String : String]]
-//                    self.weatherCollectionView.reloadData()
-//                }
-//
-//            }
-//            else {
-//                getCurrentWeatherData(lat: "37.551732", long: "126.924958", reload: false)
-//            }
-//        }
-//        else {
-//            getCurrentWeatherData(lat: "37.551732", long: "126.924958", reload: false)
-//        }
-        test(lat: lat, long: long)
-    }
     var weatherInfo = [String:[String:String]]()
-    fileprivate func test(lat: String, long: String) {
-        WeatherApiHelper.shared.getTotalCurrentWeather(lat: lat, long: long) { (weatherinfo) in
-            self.weatherInfo = weatherinfo
-            self.weatherCollectionView.reloadData()
+    fileprivate func getWeatherData(lat: String, long: String) {
+        WeatherApiHelper.shared.getTotalCurrentWeather(lat: lat, long: long) { [weak self] (weatherinfo) in
+            self?.weatherInfo = weatherinfo
+            self?.weatherCollectionView.reloadData()
         }
     }
 
@@ -274,7 +250,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return attributedString
     }
     
-    var futureWeatherInfo: [String:Array<Any>] = ["":[Any]()]
+    var futureWeatherInfo = [String:[Any]]()
     
     fileprivate func getFutureTemp() {
         WeatherApiHelper.shared.getForecastTemp { [weak self] (temp) in
@@ -288,6 +264,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     fileprivate func getFutureWeather() {
         WeatherApiHelper.shared.getForecastWeather { [weak self] (weather) in
+            print(weather)
             guard let rain = weather["rain"] else {return}
             guard let sky = weather["sky"] else {return}
             self?.futureWeatherInfo["rain"] = rain
@@ -310,8 +287,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         if !didUpdated {
             getNowWeather(lat: lat, long: long)
-//            getWeatherData(lat: lat, long: long)
-            test(lat: lat, long: long)
+            getWeatherData(lat: lat, long: long)
             getAmPmWeather()
 
             getFutureTemp()

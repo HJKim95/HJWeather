@@ -189,6 +189,7 @@ class forecastWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICol
                     }
                     if skyInfo.count > 0 {
                         let sky = skyInfo[index] as! String
+                        print(sky, "forecast Weather Cell ", indexPath.item)
                         futureWeather.sky_text = sky
                     }
                     cell.futureWeatherInfo = futureWeather

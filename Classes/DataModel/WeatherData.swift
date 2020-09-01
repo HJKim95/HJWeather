@@ -23,3 +23,12 @@ public struct WeatherData {
 
     
 }
+
+public enum WeatherObject {
+    case now
+    case current
+    case tomorrow
+    case forecastWeather
+    case forecastTemp
+    case none
+}

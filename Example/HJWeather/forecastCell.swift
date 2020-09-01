@@ -34,34 +34,36 @@ class forecastCell: UICollectionViewCell {
     
     var futureWeatherInfo: futureWeatherModel? {
         didSet {
+            guard let rain = futureWeatherInfo?.rain_text else {return}
+            rainLabel.text = "강수확률\n\(rain)%"
+            
+            guard let sky = futureWeatherInfo?.sky_text else {return}
+            print(sky)
+//            if sky == "맑음" {
+//                weatherImageView.image = UIImage(named: "SKY_D01")
+//            }
+//            else if sky == "구름많음" {
+//                weatherImageView.image = UIImage(named: "SKY_D03")
+//            }
+//            else if sky == "흐림" {
+//                weatherImageView.image = UIImage(named: "SKY_D04")
+//            }
+//            else if sky.contains("비") {
+//                weatherImageView.image = UIImage(named: "RAIN_D01")
+//            }
+//            else if sky.contains("눈") {
+//                weatherImageView.image = UIImage(named: "RAIN_D02")
+//            }
+//            else {
+//                weatherImageView.image = UIImage(named: "SKY_D03")
+//            }
             guard let tempMax = futureWeatherInfo?.temp_Max else {return}
             highTempLabel.text = "\(tempMax)°"
             
             guard let tempMin = futureWeatherInfo?.temp_Min else {return}
             lowTempLabel.text = "\(tempMin)°"
             
-            guard let rain = futureWeatherInfo?.rain_text else {return}
-            rainLabel.text = "강수확률\n\(rain)%"
             
-            guard let sky = futureWeatherInfo?.sky_text else {return}
-            if sky == "맑음" {
-                weatherImageView.image = UIImage(named: "SKY_D01")
-            }
-            else if sky == "구름많음" {
-                weatherImageView.image = UIImage(named: "SKY_D03")
-            }
-            else if sky == "흐림" {
-                weatherImageView.image = UIImage(named: "SKY_D04")
-            }
-            else if sky.contains("비") {
-                weatherImageView.image = UIImage(named: "RAIN_D01")
-            }
-            else if sky.contains("눈") {
-                weatherImageView.image = UIImage(named: "RAIN_D02")
-            }
-            else {
-                weatherImageView.image = UIImage(named: "SKY_D03")
-            }
         }
     }
 
