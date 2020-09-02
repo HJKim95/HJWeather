@@ -74,7 +74,6 @@ public class WeatherApiHelper {
                                 if Int(time)! < Int(timeString)! {
                                     let dateTimeString = "\(dates)\(time)"
                                     weatherInfo[dateTimeString] = saved[dateTimeString]
-                                    print(weatherInfo)
                                     completed(weatherInfo)
                                 }
                                 
