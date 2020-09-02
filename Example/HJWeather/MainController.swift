@@ -132,15 +132,15 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var nowWeather = nowWeatherModel()
     
     fileprivate func getNowWeather(lat: String, long: String) {
-        let date = getDate(index: 0)
-        let time = Int(getTime())!
+        let date = WeatherApiHelper.shared.getDate(date: .today)
+        let time = Int(WeatherApiHelper.shared.getTime())!
         var timeString = ""
         if time < 9 {
             timeString = "\(date)0\(time + 1)00"
         }
         else {
             if time == 23 {
-                let tomorrow = getDate(index: 1)
+                let tomorrow = WeatherApiHelper.shared.getDate(date: .tomorrow)
                 timeString = "\(tomorrow)0000"
             }
             else {
@@ -190,10 +190,21 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     var ampmWeatherInfo = [futureWeatherModel]()
-    
     fileprivate func getAmPmWeather(future: Bool) {
         WeatherApiHelper.shared.getTomorrowWeather(future: future) { [weak self] (weather) in
             self?.ampmWeatherInfo = weather
+        }
+    }
+    
+    var futureWeatherInfo = [futureWeatherModel]()
+    
+    fileprivate func getFutureWeather() {
+        WeatherApiHelper.shared.getTomorrowWeather(future: true) { [weak self] (nearWeather) in
+            self?.futureWeatherInfo = nearWeather
+            WeatherApiHelper.shared.getForecastWeather { [weak self] (futureWeather) in
+                self?.futureWeatherInfo += futureWeather
+                self?.weatherCollectionView.reloadData()
+            }
         }
     }
     
@@ -250,31 +261,6 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return attributedString
     }
     
-    
-    
-    fileprivate func getFutureTemp() {
-        WeatherApiHelper.shared.getForecastTemp { [weak self] (temp) in
-//            guard let tempMin = temp["tempMin"] else {return}
-//            guard let tempMax = temp["tempMax"] else {return}
-//            self?.futureWeatherInfo["tempMin"] = tempMin
-//            self?.futureWeatherInfo["tempMax"] = tempMax
-//            self?.weatherCollectionView.reloadData()
-        }
-    }
-    
-    var futureWeatherInfo = [futureWeatherModel]()
-    
-    fileprivate func getFutureWeather() {
-        WeatherApiHelper.shared.getTomorrowWeather(future: true) { [weak self] (nearWeather) in
-            self?.futureWeatherInfo = nearWeather
-            WeatherApiHelper.shared.getForecastWeather { [weak self] (futureWeather) in
-                self?.futureWeatherInfo += futureWeather
-                self?.weatherCollectionView.reloadData()
-            }
-        }
-        
-    }
-    
     var didUpdated: Bool = false
 
     //MARK: - location delegate methods
@@ -292,7 +278,6 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
             getWeatherData(lat: lat, long: long)
             getAmPmWeather(future: false)
 
-            getFutureTemp()
             getFutureWeather()
 
             let geocoder = CLGeocoder()
@@ -346,7 +331,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         else if indexPath.item == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tomorrowid, for: indexPath) as! tomorrowWeatherCell
             cell.tomorrowWeatherInfo = weatherInfo
-            cell.tomorrowAfterCheck = "tomorrow"
+            cell.tomorrowAfterCheck = .tomorrow
             if ampmWeatherInfo.count == 5 {
                 cell.ampmWeatherInfo = Array(ampmWeatherInfo[1...2])
             }
@@ -355,6 +340,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             if dustAttributedStrings_tomorrow.count > 0 {
                 cell.dustAttributedString = dustAttributedStrings_tomorrow[0]
+                
             }
             cell.tomorrowWeatherCollectionView.reloadData()
             return cell
@@ -362,7 +348,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         else if indexPath.item == 2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tomorrowid, for: indexPath) as! tomorrowWeatherCell
             cell.tomorrowWeatherInfo = weatherInfo
-            cell.tomorrowAfterCheck = "after"
+            cell.tomorrowAfterCheck = .after_tomorrow
             if ampmWeatherInfo.count == 5 {
                 cell.ampmWeatherInfo = Array(ampmWeatherInfo[3...4])
             }
@@ -422,33 +408,6 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     // MARK:- Private
-    fileprivate func getDate(index: Int) -> String {
-        // index: 0 now, 1 tomorrow, 2 day after tomorrow
-        var date = Date()
-        if index == 1 {
-            date = date.addingTimeInterval(24 * 60 * 60)
-        }
-        else if index == 2 {
-            date = date.addingTimeInterval(48 * 60 * 60)
-        }
-        let dateFommater = DateFormatter()
-        dateFommater.dateFormat = "yyyyMMdd"
-        dateFommater.timeZone = TimeZone(secondsFromGMT: 9 * 60 * 60)
-        let dateString:String = dateFommater.string(from: date)
-        
-        return dateString
-    }
-    
-    fileprivate func getTime() -> String {
-        let now = Date()
-        let timeFommater = DateFormatter()
-        timeFommater.dateFormat = "HH"
-        // time은 hour단위
-        let time:String = timeFommater.string(from: now)
-        
-        return time
-    }
-    
     fileprivate func getBarDate(index: Int) -> String {
         let now = Date()
         let tomorrow = now.addingTimeInterval(24 * 60 * 60)

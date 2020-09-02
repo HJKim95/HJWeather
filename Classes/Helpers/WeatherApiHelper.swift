@@ -53,12 +53,7 @@ public class WeatherApiHelper {
                 var savedInfo = [String:[String:String]]()
                 
                 weatherInfo = weatherInfos
-                let date = Date()
-                let dateFommater = DateFormatter()
-                dateFommater.dateFormat = "yyyyMMdd"
-                dateFommater.timeZone = TimeZone(secondsFromGMT: 9 * 60 * 60)
-                let dateString:String = dateFommater.string(from: date)
-                let dates = dateString
+                guard let dates = self?.getDate(date: .today) else {return}
                 guard let time = self?.getTime() else {return}
                 let timeString = "\(time)00"
                 // 최신화하기 전, 이전 정보 저장
@@ -79,6 +74,7 @@ public class WeatherApiHelper {
                                 if Int(time)! < Int(timeString)! {
                                     let dateTimeString = "\(dates)\(time)"
                                     weatherInfo[dateTimeString] = saved[dateTimeString]
+                                    print(weatherInfo)
                                     completed(weatherInfo)
                                 }
                                 
@@ -775,7 +771,7 @@ public class WeatherApiHelper {
         return result
     }
     
-    private func getTime() -> String {
+    public func getTime() -> String {
         let now = Date()
         let timeFommater = DateFormatter()
         timeFommater.dateFormat = "HH"
@@ -847,10 +843,31 @@ public class WeatherApiHelper {
         let timePar = date + time + "00"
         return timePar
     }
-
+    
+    public func getDate(date: dates) -> String {
+        var now = Date()
+        if date == .tomorrow {
+            now = now.addingTimeInterval(24 * 60 * 60)
+        }
+        else if date == .after_tomorrow {
+            now = now.addingTimeInterval(48 * 60 * 60)
+        }
+        let dateFommater = DateFormatter()
+        dateFommater.dateFormat = "yyyyMMdd"
+        dateFommater.timeZone = TimeZone(secondsFromGMT: 9 * 60 * 60)
+        let date:String = dateFommater.string(from: now)
+        
+        return date
+    }
+    
+    public enum dates {
+        case today
+        case tomorrow
+        case after_tomorrow
+    }
     
     
-    //MARK: - 위도경도 좌표변환뻘짓 함수. 기상청이 제공한 소스를 swift 버전으로 수정해본것.
+    //MARK: - 위도경도 좌표변환 함수. 기상청이 제공한 소스를 swift 버전으로 수정해본것.
     private func convertGrid(code:String, v1:Double, v2:Double) -> [String:Double] {
         // LCC DFS 좌표변환을 위한 기초 자료
         let RE = 6371.00877 // 지구 반경(km)

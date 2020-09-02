@@ -94,10 +94,10 @@ class tomorrowWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICol
     
     let timeGap = ["0000","0300","0600","0900","1200","1500","1800","2100"]
     
-    var tomorrowAfterCheck = "" {
+    var tomorrowAfterCheck = WeatherApiHelper.dates.tomorrow {
         didSet {
             if !didCall {
-                let date = getTomorrowDate(check: tomorrowAfterCheck)
+                let date = WeatherApiHelper.shared.getDate(date: tomorrowAfterCheck)
                 for i in timeGap {
                     tomorrowWeatherDateTime.append("\(date)\(i)")
                     self.tomorrowWeatherCollectionView.reloadData()
@@ -105,31 +105,6 @@ class tomorrowWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICol
                 didCall = true
             }
         }
-    }
-    
-    
-    private func getTomorrowDate(check: String) -> String {
-        let now = Date()
-        var tomorrow = now.addingTimeInterval(24 * 60 * 60)
-        if check == "after" {
-            tomorrow = now.addingTimeInterval(48 * 60 * 60)
-        }
-        let dateFommater = DateFormatter()
-        dateFommater.dateFormat = "yyyyMMdd"
-        dateFommater.timeZone = TimeZone(secondsFromGMT: 9 * 60 * 60)
-        let date:String = dateFommater.string(from: tomorrow)
-        
-        return date
-    }
-    
-    private func getTime() -> String {
-        let now = Date()
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "HH"
-        // time은 hour단위
-        let time:String = timeFormatter.string(from: now)
-        
-        return time
     }
     
     //MARK: - UICollectionViewDataSource

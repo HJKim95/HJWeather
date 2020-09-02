@@ -52,17 +52,6 @@ class forecastWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICol
     
     var futureWeatherInfo: [futureWeatherModel]?
     
-    
-    fileprivate func getTime() -> String {
-        let now = Date()
-        let timeFommater = DateFormatter()
-        timeFommater.dateFormat = "HH"
-        // time은 hour단위
-        let time:String = timeFommater.string(from: now)
-        
-        return time
-    }
-    
     var ampmWeatherInfo = [Dictionary<String, String>]()
     
     //MARK: - UICollectionViewDataSource
@@ -97,7 +86,7 @@ class forecastWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICol
             formatter.dateFormat = "d"
             
             var startIndex = (comps.weekday ?? 1) - 1
-            let time = getTime()
+            let time = WeatherApiHelper.shared.getTime()
             if Int(time)! < 5 {
                 // 밤 12시 ~ 오전 5시
                 startIndex = (comps_yesterday.weekday ?? 1) - 1

@@ -120,9 +120,9 @@ class todayWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICollec
     
     fileprivate func getWeatherDataTime() {
     
-        let date = getDate(index: 0)
-        let time = getTime()
-        let tomorrow = getDate(index: 1)
+        let date = WeatherApiHelper.shared.getDate(date: .today)
+        let time = WeatherApiHelper.shared.getTime()
+        let tomorrow = WeatherApiHelper.shared.getDate(date: .tomorrow)
         for i in timeGap {
             if time == "23" {
                 todayWeatherDateTime.append("\(tomorrow)\(i)")
@@ -134,33 +134,6 @@ class todayWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICollec
         }
     }
     
-    fileprivate func getDate(index: Int) -> String {
-        // index: 0 now, 1 tomorrow, 2 day after tomorrow
-        var date = Date()
-        if index == 1 {
-            date = date.addingTimeInterval(24 * 60 * 60)
-        }
-        else if index == 2 {
-            date = date.addingTimeInterval(48 * 60 * 60)
-        }
-        let dateFommater = DateFormatter()
-        dateFommater.dateFormat = "yyyyMMdd"
-        dateFommater.timeZone = TimeZone(secondsFromGMT: 9 * 60 * 60)
-        let dateString:String = dateFommater.string(from: date)
-        
-        return dateString
-    }
-    
-    private func getTime() -> String {
-        let now = Date()
-        let timeFommater = DateFormatter()
-        timeFommater.dateFormat = "HH"
-        // time은 hour단위
-        let time:String = timeFommater.string(from: now)
-        
-        return time
-    }
-    
     //MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return todayWeatherDateTime.count
@@ -168,7 +141,7 @@ class todayWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellid, for: indexPath) as! WeatherInnerCell
-        let realTime = getTime()
+        let realTime = WeatherApiHelper.shared.getTime()
         let dateTime = todayWeatherDateTime[indexPath.item]
         let timeinfo = timeInfoModel()
         var timeStartIndex = dateTime.index(dateTime.startIndex, offsetBy: 8)
