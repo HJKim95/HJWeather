@@ -427,7 +427,7 @@ public class WeatherApiHelper {
         }
     }
     
-    public func getTomorrowWeather(future: Bool, completed: @escaping (_ tomorrowInfo: Array<futureWeatherModel>) -> Void) {
+    public func getTomorrowWeather(future: Bool, completed: @escaping (_ tomorrowInfo: [futureWeatherModel]) -> Void) {
         getApiData(base: makeTomorrowAPIParameter(), object: .tomorrow) { (dataArray) in
             var nearFutureWeatherInfo = [futureWeatherModel]()
             var range = 0..<dataArray.count
@@ -475,11 +475,11 @@ public class WeatherApiHelper {
                     let sky = dataArray[pmIndex]["wfCd"].stringValue
                     switch sky {
                     case "DB01":
-                        futureModel.sky_text = "맑음"
+                        futureModel.sky_text = "SKY_D01"
                     case "DB03":
-                        futureModel.sky_text = "구름많음"
+                        futureModel.sky_text = "SKY_D03"
                     case "DB04":
-                        futureModel.sky_text = "흐림"
+                        futureModel.sky_text = "SKY_D04"
                     default:
                         futureModel.sky_text = "wfCD code error"
                     }
@@ -487,13 +487,13 @@ public class WeatherApiHelper {
                 else {
                     switch isRain {
                     case 1:
-                        futureModel.sky_text = "비"
+                        futureModel.sky_text = "RAIN_D01"
                     case 2:
-                        futureModel.sky_text = "비/눈"
+                        futureModel.sky_text = "RAIN_D02"
                     case 3:
-                        futureModel.sky_text = "눈"
+                        futureModel.sky_text = "RAIN_D03"
                     case 4:
-                        futureModel.sky_text = "소나기"
+                        futureModel.sky_text = "RAIN_D04"
                     default:
                         futureModel.sky_text = "rnYn code error"
                     }
@@ -506,34 +506,77 @@ public class WeatherApiHelper {
         }
     }
     
-    public func getForecastWeather(completed: @escaping (_ forecastInfo: [String:Array<Any>]) -> Void) {
-        getApiData(base: makeForecastAPIParameter(object: "weather"), object: .forecastWeather) { (dataArray) in
+    public func getForecastWeather(completed: @escaping (_ forecastInfo: [futureWeatherModel]) -> Void) {
+        getApiData(base: makeForecastAPIParameter(object: "weather"), object: .forecastWeather) { [weak self] (dataArray) in
+            var futureWeatherInfo = [futureWeatherModel]()
             if dataArray.count > 0 {
-                let info: Dictionary = dataArray[0].dictionaryObject ?? ["":""]
-                let pmRainCode = ["rnSt3Pm","rnSt4Pm","rnSt5Pm","rnSt6Pm","rnSt7Pm"]
+                let weatherInfo: Dictionary = dataArray[0].dictionaryObject ?? ["":""]
+                let pmRainCode = ["rnSt3Pm","rnSt4Pm","rnSt5Pm","rnSt6Pm","rnSt7Pm"] // 10일 날씨의 경우 오전,오후 중 하나만 보여줘야되기 때문에 오후만 보여주기로 한다.
                 let future_RainCode = ["rnSt8","rnSt9","rnSt10"]
                 let pmWeatherCode = ["wf3Pm","wf4Pm","wf5Pm","wf6Pm","wf7Pm"]
                 let future_WeatherCode = ["wf8","wf9","wf10"]
-                var rainDict: [String:Array<Any>] = [:]
-                var rainArray = [Any]()
-                var skyArray = [Any]()
-                for pmRain in pmRainCode {
-                    rainArray.append(info[pmRain] ?? "")
-                }
-                for futRain in future_RainCode {
-                    rainArray.append(info[futRain] ?? "")
+                
+                
+                for i in 0..<pmRainCode.count {
+                    let futureModel = futureWeatherModel()
+                    
+                    let sky = pmWeatherCode[i]
+                    let rain = pmRainCode[i]
+                    futureModel.sky_text = weatherInfo[sky] as? String
+                    futureModel.rain_text = weatherInfo[rain]
+                    
+                    futureWeatherInfo.append(futureModel)
                 }
                 
-                for pmWeather in pmWeatherCode {
-                    skyArray.append(info[pmWeather] ?? "")
+                for i in 0..<future_RainCode.count {
+                    let futureModel = futureWeatherModel()
+                    
+                    let sky = future_WeatherCode[i]
+                    let rain = future_RainCode[i]
+                    futureModel.sky_text = weatherInfo[sky] as? String
+                    futureModel.rain_text = weatherInfo[rain]
+                    
+                    futureWeatherInfo.append(futureModel)
                 }
-                for futWeather in future_WeatherCode {
-                    skyArray.append(info[futWeather] ?? "")
-                }
-                rainDict["rain"] = rainArray
-                rainDict["sky"] = skyArray
                 
-                completed(rainDict)
+                self?.getApiData(base: self?.makeForecastAPIParameter(object: "temp") ?? ["":""], object: .forecastTemp) { (dataArray) in
+                    if dataArray.count > 0 {
+                        let tempInfo: Dictionary = dataArray[0].dictionaryObject ?? ["":""]
+                        let tempMinCode = ["taMin3","taMin4","taMin5","taMin6","taMin7","taMin8","taMin9","taMin10"]
+                        let tempMaxCode = ["taMax3","taMax4","taMax5","taMax6","taMax7","taMax8","taMax9","taMax10"]
+
+                        for i in 0..<tempMinCode.count {
+                            let min = tempMinCode[i]
+                            futureWeatherInfo[i].temp_Min = tempInfo[min]
+                        }
+                        for i in 0..<tempMaxCode.count {
+                            let max = tempMaxCode[i]
+                            futureWeatherInfo[i].temp_Max = tempInfo[max]
+                        }
+                        completed(futureWeatherInfo)
+                    }
+
+                }
+//                var rainDict: [String:Array<Any>] = [:]
+//                var rainArray = [Any]()
+//                var skyArray = [Any]()
+//                for pmRain in pmRainCode {
+//                    rainArray.append(info[pmRain] ?? "")
+//                }
+//                for futRain in future_RainCode {
+//                    rainArray.append(info[futRain] ?? "")
+//                }
+//
+//                for pmWeather in pmWeatherCode {
+//                    skyArray.append(info[pmWeather] ?? "")
+//                }
+//                for futWeather in future_WeatherCode {
+//                    skyArray.append(info[futWeather] ?? "")
+//                }
+//                rainDict["rain"] = rainArray
+//                rainDict["sky"] = skyArray
+                
+//                completed(rainDict)
             }
         }
     }

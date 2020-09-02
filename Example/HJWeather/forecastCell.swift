@@ -11,52 +11,30 @@ import HJWeather
 
 class forecastCell: UICollectionViewCell {
     
-    var nearfutureWeatherInfo: futureWeatherModel? {
-        didSet {
-            guard let tempMax = nearfutureWeatherInfo?.temp_Max else {return}
-            highTempLabel.text = "\(tempMax)°"
-            
-            guard let tempMin = nearfutureWeatherInfo?.temp_Min else {return}
-            if tempMin as? String == "" {
-                lowTempLabel.text = ""
-            }
-            else {
-                lowTempLabel.text = "\(tempMin)°"
-            }
-            
-            guard let rain = nearfutureWeatherInfo?.rain_text else {return}
-            rainLabel.text = "강수확률\n\(rain)%"
-
-            guard let sky = nearfutureWeatherInfo?.sky_text else {return}
-            weatherImageView.image = UIImage(named: sky)
-        }
-    }
-    
     var futureWeatherInfo: futureWeatherModel? {
         didSet {
             guard let rain = futureWeatherInfo?.rain_text else {return}
             rainLabel.text = "강수확률\n\(rain)%"
             
             guard let sky = futureWeatherInfo?.sky_text else {return}
-//            print(sky)
-//            if sky == "맑음" {
-//                weatherImageView.image = UIImage(named: "SKY_D01")
-//            }
-//            else if sky == "구름많음" {
-//                weatherImageView.image = UIImage(named: "SKY_D03")
-//            }
-//            else if sky == "흐림" {
-//                weatherImageView.image = UIImage(named: "SKY_D04")
-//            }
-//            else if sky.contains("비") {
-//                weatherImageView.image = UIImage(named: "RAIN_D01")
-//            }
-//            else if sky.contains("눈") {
-//                weatherImageView.image = UIImage(named: "RAIN_D02")
-//            }
-//            else {
-//                weatherImageView.image = UIImage(named: "SKY_D03")
-//            }
+            if sky == "맑음" {
+                weatherImageView.image = UIImage(named: "SKY_D01")
+            }
+            else if sky == "구름많음" {
+                weatherImageView.image = UIImage(named: "SKY_D03")
+            }
+            else if sky == "흐림" {
+                weatherImageView.image = UIImage(named: "SKY_D04")
+            }
+            else if sky.contains("비") {
+                weatherImageView.image = UIImage(named: "RAIN_D01")
+            }
+            else if sky.contains("눈") {
+                weatherImageView.image = UIImage(named: "RAIN_D02")
+            }
+            else {
+                weatherImageView.image = UIImage(named: "SKY_D03")
+            }
             guard let tempMax = futureWeatherInfo?.temp_Max else {return}
             highTempLabel.text = "\(tempMax)°"
             

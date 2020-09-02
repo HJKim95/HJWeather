@@ -191,8 +191,8 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     var ampmWeatherInfo = [futureWeatherModel]()
     
-    fileprivate func getAmPmWeather() {
-        WeatherApiHelper.shared.getTomorrowWeather(future: false) { [weak self] (weather) in
+    fileprivate func getAmPmWeather(future: Bool) {
+        WeatherApiHelper.shared.getTomorrowWeather(future: future) { [weak self] (weather) in
             self?.ampmWeatherInfo = weather
         }
     }
@@ -250,27 +250,29 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return attributedString
     }
     
-    var futureWeatherInfo = [String:[Any]]()
+    
     
     fileprivate func getFutureTemp() {
         WeatherApiHelper.shared.getForecastTemp { [weak self] (temp) in
-            guard let tempMin = temp["tempMin"] else {return}
-            guard let tempMax = temp["tempMax"] else {return}
-            self?.futureWeatherInfo["tempMin"] = tempMin
-            self?.futureWeatherInfo["tempMax"] = tempMax
-            self?.weatherCollectionView.reloadData()
+//            guard let tempMin = temp["tempMin"] else {return}
+//            guard let tempMax = temp["tempMax"] else {return}
+//            self?.futureWeatherInfo["tempMin"] = tempMin
+//            self?.futureWeatherInfo["tempMax"] = tempMax
+//            self?.weatherCollectionView.reloadData()
         }
     }
     
+    var futureWeatherInfo = [futureWeatherModel]()
+    
     fileprivate func getFutureWeather() {
-        WeatherApiHelper.shared.getForecastWeather { [weak self] (weather) in
-            print(weather)
-            guard let rain = weather["rain"] else {return}
-            guard let sky = weather["sky"] else {return}
-            self?.futureWeatherInfo["rain"] = rain
-            self?.futureWeatherInfo["sky"] = sky
-            self?.weatherCollectionView.reloadData()
+        WeatherApiHelper.shared.getTomorrowWeather(future: true) { [weak self] (nearWeather) in
+            self?.futureWeatherInfo = nearWeather
+            WeatherApiHelper.shared.getForecastWeather { [weak self] (futureWeather) in
+                self?.futureWeatherInfo += futureWeather
+                self?.weatherCollectionView.reloadData()
+            }
         }
+        
     }
     
     var didUpdated: Bool = false
@@ -288,7 +290,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if !didUpdated {
             getNowWeather(lat: lat, long: long)
             getWeatherData(lat: lat, long: long)
-            getAmPmWeather()
+            getAmPmWeather(future: false)
 
             getFutureTemp()
             getFutureWeather()
@@ -375,7 +377,6 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: forecastid, for: indexPath) as! forecastWeatherCell
-//            cell.ampmWeatherInfo = ampmWeatherInfo
             cell.futureWeatherInfo = futureWeatherInfo
             cell.forecastWeatherCollectionView.reloadData()
             return cell

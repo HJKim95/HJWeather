@@ -49,27 +49,8 @@ class forecastWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICol
         addSubview(forecastWeatherCollectionView)
         forecastWeatherCollectionViewConstraint = forecastWeatherCollectionView.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: self.rightAnchor, topConstant: 40, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 40 + ((frame.width / 7) + 87) * 3).first
     }
-    var futureWeatherInfo: [String:Array<Any>]? {
-        didSet {
-            guard let temp_max = futureWeatherInfo?["tempMax"] else {return}
-            tempMax = temp_max
-            
-            guard let temp_min = futureWeatherInfo?["tempMin"] else {return}
-            tempMin = temp_min
-            
-            guard let rain_Info = futureWeatherInfo?["rain"] else {return}
-            rainInfo = rain_Info
-            
-            guard let sky_Info = futureWeatherInfo?["sky"] else {return}
-            skyInfo = sky_Info
-            forecastWeatherCollectionView.reloadData()
-        }
-    }
     
-    var tempMax = [Any]()
-    var tempMin = [Any]()
-    var rainInfo = [Any]()
-    var skyInfo = [Any]()
+    var futureWeatherInfo: [futureWeatherModel]?
     
     
     fileprivate func getTime() -> String {
@@ -167,92 +148,9 @@ class forecastWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICol
                     }
                 }
                 
-
-                if indexPath.item > startIndex + 2 {
-                    // 3일 이후 부터
-                    let futureWeather = futureWeatherModel()
-                    let index = indexPath.item - startIndex - 3
-                    
-                    if tempMax.count > 0 {
-                        let tempmax = tempMax[index]
-                        futureWeather.temp_Max = tempmax
-                    }
-                    if tempMin.count > 0 {
-                        let tempmin = tempMin[index]
-                        futureWeather.temp_Min = tempmin
-                    }
-                    if rainInfo.count > 0 {
-                        let rain = rainInfo[index] as! Int
-                        if rain > 30 {
-                            futureWeather.rain_text = rain
-                        }
-                    }
-                    if skyInfo.count > 0 {
-                        let sky = skyInfo[index] as! String
-//                        print(sky, "forecast Weather Cell ", indexPath.item)
-                        futureWeather.sky_text = sky
-                    }
-                    cell.futureWeatherInfo = futureWeather
-                }
-                else {
-                    // 오늘,내일,모레
-                    let nearfutureWeather = futureWeatherModel()
-                    let maxIndex = (indexPath.item - startIndex) * 2
-                    if ampmWeatherInfo.count > 0 {
-                        let maxTemp = ampmWeatherInfo[maxIndex]["ta"]
-                        nearfutureWeather.temp_Max = maxTemp
-                        if let isRain = ampmWeatherInfo[maxIndex]["rnYn"] {
-                            if Int(isRain)! == 0 {
-                                if let sky = ampmWeatherInfo[maxIndex]["wfCd"] {
-                                    if sky == "DB01" {
-                                        nearfutureWeather.sky_text = "SKY_D01"
-                                    }
-                                    else if sky == "DB03" {
-                                        nearfutureWeather.sky_text = "SKY_D03"
-                                    }
-                                    else {
-                                        // DB04
-                                        nearfutureWeather.sky_text = "SKY_D04"
-                                    }
-                                }
-                            }
-                            else if Int(isRain)! == 1 {
-                                nearfutureWeather.sky_text = "RAIN_D01"
-                            }
-                            else if Int(isRain)! == 2 {
-                                nearfutureWeather.sky_text = "RAIN_D02"
-                            }
-                            else if Int(isRain)! == 3 {
-                                nearfutureWeather.sky_text = "RAIN_D03"
-                            }
-                            else {
-                                nearfutureWeather.sky_text = "RAIN_D04"
-                            }
-                        }
-                    }
-                    if ampmWeatherInfo.count == 5 {
-                        // 오전 11시 이후 요청시
-                        let minIndex = maxIndex - 1
-                        if indexPath.item - startIndex > 0 {
-                            let minTemp = ampmWeatherInfo[minIndex]["ta"]
-                            nearfutureWeather.temp_Min = minTemp
-                            
-                        }
-                        else {
-                            nearfutureWeather.temp_Min = ""
-                        }
-                        let rain = ampmWeatherInfo[maxIndex]["rnSt"]
-                        nearfutureWeather.rain_text = rain
-                    }
-                    else if ampmWeatherInfo.count == 6 {
-                        // 오전 11시 이전 요청시
-                        let minIndex = maxIndex + 1
-                        let minTemp = ampmWeatherInfo[minIndex]["ta"]
-                        nearfutureWeather.temp_Min = minTemp
-                    }
-                    
-                    cell.nearfutureWeatherInfo = nearfutureWeather
-                }
+                let index = indexPath.item - startIndex
+                cell.futureWeatherInfo = futureWeatherInfo?[index]
+                
             }
             else {
                 // cell reuse에 대한 오류 해결.
@@ -281,3 +179,4 @@ class forecastWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICol
         return 2
     }
 }
+

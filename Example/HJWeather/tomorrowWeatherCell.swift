@@ -85,11 +85,7 @@ class tomorrowWeatherCell: UICollectionViewCell, UICollectionViewDelegate, UICol
         
     }
     
-    var ampmWeatherInfo = [futureWeatherModel]() {
-        didSet {
-            print(ampmWeatherInfo[0].temp_Min)
-        }
-    }
+    var ampmWeatherInfo = [futureWeatherModel]()
     
     var tomorrowWeatherDateTime = [String]()
     var tomorrowWeatherInfo = [String:[String:String]]()

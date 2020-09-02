@@ -31,41 +31,21 @@ class ampmCell: UICollectionViewCell {
             let attributedString = NSMutableAttributedString(string: "")
             let imageAttachment = NSTextAttachment()
             
-            if let sky = ampmInfo?.sky_text {
-                switch sky {
-                case "맑음":
-                    imageAttachment.image = UIImage(named: "SKY_D01")
-                case "구름많음":
-                    imageAttachment.image = UIImage(named: "SKY_D03")
-                case "흐림":
-                    imageAttachment.image = UIImage(named: "SKY_D04")
-                case "비":
-                    imageAttachment.image = UIImage(named: "RAIN_D01")
-                case "비/눈":
-                    imageAttachment.image = UIImage(named: "RAIN_D02")
-                case "눈":
-                    imageAttachment.image = UIImage(named: "RAIN_D03")
-                case "소나기":
-                    imageAttachment.image = UIImage(named: "RAIN_D04")
-                default:
-                    imageAttachment.image = UIImage(named: "")
-                }
-                
-
-                imageAttachment.bounds = CGRect(x: 0, y: -15, width: 50, height: 50)
-                attributedString.append(NSAttributedString(attachment: imageAttachment))
-                
-                var temp = ""
-                if self.tag == 0 {
-                    temp = ampmInfo?.temp_Min as! String
-                }
-                else {
-                    temp = ampmInfo?.temp_Max as! String
-                }
-                attributedString.append((NSAttributedString(string: "\(temp)°C")))
-                weatherTempLabel.attributedText = attributedString
-                weatherTempLabel.sizeToFit()
+            guard let sky_text = ampmInfo?.sky_text else {return}
+            imageAttachment.image = UIImage(named: sky_text)
+            imageAttachment.bounds = CGRect(x: 0, y: -15, width: 50, height: 50)
+            attributedString.append(NSAttributedString(attachment: imageAttachment))
+            
+            var temp = ""
+            if self.tag == 0 {
+                temp = ampmInfo?.temp_Min as! String
             }
+            else {
+                temp = ampmInfo?.temp_Max as! String
+            }
+            attributedString.append((NSAttributedString(string: "\(temp)°C")))
+            weatherTempLabel.attributedText = attributedString
+            weatherTempLabel.sizeToFit()
         }
     }
     
