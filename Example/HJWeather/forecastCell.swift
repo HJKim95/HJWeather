@@ -10,6 +10,7 @@ import UIKit
 import HJWeather
 
 class forecastCell: UICollectionViewCell {
+
     
     var futureWeatherInfo: futureWeatherModel? {
         didSet {
@@ -36,10 +37,10 @@ class forecastCell: UICollectionViewCell {
                 weatherImageView.image = UIImage(named: "SKY_D03")
             }
             guard let tempMax = futureWeatherInfo?.temp_Max else {return}
-            highTempLabel.text = "\(tempMax)°"
+            highTempLabel.text = tempMax
             
             guard let tempMin = futureWeatherInfo?.temp_Min else {return}
-            lowTempLabel.text = "\(tempMin)°"
+            lowTempLabel.text = tempMin
             
             
         }

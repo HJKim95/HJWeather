@@ -438,28 +438,28 @@ public class WeatherApiHelper {
                     
                 let futureModel = futureWeatherModel()
                 if pmIndex - 1 >= 0 {
-                    futureModel.temp_Min = dataArray[pmIndex - 1]["ta"].stringValue
+                    futureModel.temp_Min = dataArray[pmIndex - 1]["ta"].stringValue + "°"
                 }
                 else {
                     futureModel.temp_Min = ""
                 }
                 futureModel.sky = dataArray[pmIndex]["wf"].stringValue // 내일,모레 날씨 위함.
-                futureModel.temp_Max = dataArray[pmIndex]["ta"].stringValue
+                futureModel.temp_Max = dataArray[pmIndex]["ta"].stringValue + "°"
                 if !future { // 내일,모레 날씨 위함.
                     if dataArray.count == 5 {
                         if pmIndex % 2 == 1 {
-                            futureModel.temp_Min = dataArray[pmIndex]["ta"].stringValue
+                            futureModel.temp_Min = dataArray[pmIndex]["ta"].stringValue + "°"
                         }
                         else {
-                            futureModel.temp_Max = dataArray[pmIndex]["ta"].stringValue
+                            futureModel.temp_Max = dataArray[pmIndex]["ta"].stringValue + "°"
                         }
                     }
                     else {
                         if pmIndex % 2 == 1 {
-                            futureModel.temp_Max = dataArray[pmIndex]["ta"].stringValue
+                            futureModel.temp_Max = dataArray[pmIndex]["ta"].stringValue + "°"
                         }
                         else {
-                            futureModel.temp_Min = dataArray[pmIndex]["ta"].stringValue
+                            futureModel.temp_Min = dataArray[pmIndex]["ta"].stringValue + "°"
                         }
                     }
                 }
@@ -517,8 +517,8 @@ public class WeatherApiHelper {
                     
                     let sky = pmWeatherCode[i]
                     let rain = pmRainCode[i]
-                    futureModel.sky_text = weatherInfo[sky] as? String
-                    futureModel.rain_text = weatherInfo[rain]
+                    futureModel.sky_text = "\(weatherInfo[sky] ?? "")"
+                    futureModel.rain_text = "\(weatherInfo[rain] ?? "")"
                     
                     futureWeatherInfo.append(futureModel)
                 }
@@ -528,50 +528,29 @@ public class WeatherApiHelper {
                     
                     let sky = future_WeatherCode[i]
                     let rain = future_RainCode[i]
-                    futureModel.sky_text = weatherInfo[sky] as? String
-                    futureModel.rain_text = weatherInfo[rain]
+                    futureModel.sky_text = "\(weatherInfo[sky] ?? "")"
+                    futureModel.rain_text = "\(weatherInfo[rain] ?? "")"
                     
                     futureWeatherInfo.append(futureModel)
                 }
                 
                 self?.getApiData(base: self?.makeForecastAPIParameter(object: "temp") ?? ["":""], object: .forecastTemp) { (dataArray) in
                     if dataArray.count > 0 {
-                        let tempInfo: Dictionary = dataArray[0].dictionaryObject ?? ["":""]
+                        guard let tempInfo: Dictionary = dataArray[0].dictionaryObject else {return}
                         let tempMinCode = ["taMin3","taMin4","taMin5","taMin6","taMin7","taMin8","taMin9","taMin10"]
                         let tempMaxCode = ["taMax3","taMax4","taMax5","taMax6","taMax7","taMax8","taMax9","taMax10"]
 
                         for i in 0..<tempMinCode.count {
                             let min = tempMinCode[i]
-                            futureWeatherInfo[i].temp_Min = tempInfo[min]
+                            futureWeatherInfo[i].temp_Min = "\(tempInfo[min] ?? "")°"
                         }
                         for i in 0..<tempMaxCode.count {
                             let max = tempMaxCode[i]
-                            futureWeatherInfo[i].temp_Max = tempInfo[max]
+                            futureWeatherInfo[i].temp_Max = "\(tempInfo[max] ?? "")°"
                         }
                         completed(futureWeatherInfo)
                     }
-
                 }
-//                var rainDict: [String:Array<Any>] = [:]
-//                var rainArray = [Any]()
-//                var skyArray = [Any]()
-//                for pmRain in pmRainCode {
-//                    rainArray.append(info[pmRain] ?? "")
-//                }
-//                for futRain in future_RainCode {
-//                    rainArray.append(info[futRain] ?? "")
-//                }
-//
-//                for pmWeather in pmWeatherCode {
-//                    skyArray.append(info[pmWeather] ?? "")
-//                }
-//                for futWeather in future_WeatherCode {
-//                    skyArray.append(info[futWeather] ?? "")
-//                }
-//                rainDict["rain"] = rainArray
-//                rainDict["sky"] = skyArray
-                
-//                completed(rainDict)
             }
         }
     }

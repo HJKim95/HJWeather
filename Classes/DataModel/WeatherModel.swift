@@ -50,11 +50,11 @@ public class nowWeatherModel: NSObject {
 
 @objcMembers
 public class futureWeatherModel: NSObject {
-    public var rain_text: Any? // 강수확률
-    public var sky_text: String? // 날씨 image text
-    public var temp_Max: Any? // 최고기온
-    public var temp_Min: Any? // 최저기온
-    public var sky: String? // 날씨 (한글)
+    public var rain_text = "" // 강수확률
+    public var sky_text = "" // 날씨 image text
+    public var temp_Max = "" // 최고기온
+    public var temp_Min =  "" // 최저기온
+    public var sky = "" // 날씨 (한글)
 }
 
 @objcMembers

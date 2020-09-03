@@ -60,7 +60,7 @@ WeatherApiHelper.shared.getTotalCurrentWeather(lat: lat, long: long) { [weak sel
 ```swift
 public func getTomorrowWeather(future: Bool, completed: @escaping (_ tomorrowInfo: [futureWeatherModel]) -> Void)
 ```
-> Simply call function * future = false is for AmPm Weather, future = true is for Future Weather
+> Simply call function * future = false is for AmPm Weather, future = true is for Future Weather<br/> 
 > Please check example for implementaion
 ```swift
 var ampmWeatherInfo = [futureWeatherModel]()
@@ -72,11 +72,11 @@ WeatherApiHelper.shared.getTomorrowWeather(future: future) { [weak self] (weathe
 ```swift
 @objcMembers
 public class futureWeatherModel: NSObject {
-    public var rain_text: Any? // 강수확률
-    public var sky_text: String? // 날씨 image text
-    public var temp_Max: Any? // 최고기온
-    public var temp_Min: Any? // 최저기온
-    public var sky: String? // 날씨 (한글)
+    public var rain_text = "" // 강수확률
+    public var sky_text = "" // 날씨 image text
+    public var temp_Max = "" // 최고기온
+    public var temp_Min =  "" // 최저기온
+    public var sky = "" // 날씨 (한글)
 }
 ```
 

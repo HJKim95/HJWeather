@@ -38,12 +38,12 @@ class ampmCell: UICollectionViewCell {
             
             var temp = ""
             if self.tag == 0 {
-                temp = ampmInfo?.temp_Min as! String
+                temp = "\(ampmInfo?.temp_Min ?? "")"
             }
             else {
-                temp = ampmInfo?.temp_Max as! String
+                temp = "\(ampmInfo?.temp_Max ?? "")"
             }
-            attributedString.append((NSAttributedString(string: "\(temp)°C")))
+            attributedString.append((NSAttributedString(string: "\(temp)C")))
             weatherTempLabel.attributedText = attributedString
             weatherTempLabel.sizeToFit()
         }
