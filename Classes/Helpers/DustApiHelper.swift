@@ -208,7 +208,7 @@ public class DustApiHelper {
                          "_returnType":"json"]
         
 
-        Alamofire.request(url, method: .get,
+        AF.request(url, method: .get,
                   parameters: parameter,
                   encoding: URLEncoding.default,
                   headers: nil).responseJSON { (response) in
@@ -231,7 +231,7 @@ public class DustApiHelper {
                          "InformCode":pm,
                          "_returnType":"json"]
         
-        Alamofire.request(url, method: .get,
+        AF.request(url, method: .get,
                   parameters: parameter,
                   encoding: URLEncoding.default,
                   headers: nil).responseJSON { (response) in

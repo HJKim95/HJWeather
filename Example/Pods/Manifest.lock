@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (4.9.1)
-  - HJWeather (0.1.0):
+  - Alamofire (5.2.2)
+  - HJWeather (0.1.4):
     - Alamofire
     - SwiftyJSON
   - SwiftyJSON (5.0.0)
@@ -20,8 +20,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  HJWeather: 517c27cc41ab4ab80a1e6948047f3bb8716d9697
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  HJWeather: 8f4364fd30c7106df0a6d16be027ee68bf544843
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
 PODFILE CHECKSUM: 21e7d5b4d7e03f9be3933dfe399cd966b433ec7a

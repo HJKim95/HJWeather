@@ -30,7 +30,7 @@ public class WeatherApiHelper {
             print("URL ERROR")
         }
         
-        Alamofire.request(url, method: .get, parameters: parameter, encoding: URLEncoding.default, headers: nil)
+        AF.request(url, method: .get, parameters: parameter, encoding: URLEncoding.default, headers: nil)
             .responseJSON { (response) in
                 switch response.result {
                 case .success :
