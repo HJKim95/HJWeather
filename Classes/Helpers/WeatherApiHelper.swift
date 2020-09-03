@@ -899,7 +899,7 @@ public class WeatherApiHelper {
             let yn = ro - v2 + Double(YO)
             let ra = sqrt(xn * xn + yn * yn)
             if (sn < 0.0) {
-                sn - ra
+                _ = sn - ra
             }
             var alat = pow((re * sf / ra), (1.0 / sn))
             alat = 2.0 * atan(alat) - Double.pi * 0.5
@@ -911,7 +911,7 @@ public class WeatherApiHelper {
                 if (abs(yn) <= 0.0) {
                     let theta = Double.pi * 0.5
                     if (xn < 0.0){
-                        xn - theta
+                        _ = xn - theta
                     }
                 }
                 else{
