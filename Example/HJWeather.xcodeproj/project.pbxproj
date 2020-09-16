@@ -16,6 +16,7 @@
 		101E95F324FC9243003E9D35 /* WeatherInnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E95EA24FC9243003E9D35 /* WeatherInnerCell.swift */; };
 		101E95F424FC9243003E9D35 /* ampmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E95EB24FC9243003E9D35 /* ampmCell.swift */; };
 		101E95FB24FD5D90003E9D35 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101E95FA24FD5D90003E9D35 /* MainController.swift */; };
+		10F2A8B9251290DB003E2244 /* weather_location.csv in Resources */ = {isa = PBXBuildFile; fileRef = 10F2A8B8251290DB003E2244 /* weather_location.csv */; };
 		2C59CEAFF21AA840BF73185F /* Pods_HJWeather_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2F2F53FFAF30C82AE48F0E /* Pods_HJWeather_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		101E95EB24FC9243003E9D35 /* ampmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ampmCell.swift; sourceTree = "<group>"; };
 		101E95FA24FD5D90003E9D35 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		10F011CD892349E9A8498BCA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		10F2A8B8251290DB003E2244 /* weather_location.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = weather_location.csv; sourceTree = "<group>"; };
 		1D62D266889CBD800AC915D0 /* HJWeather.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HJWeather.podspec; path = ../HJWeather.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		242B55072475264A58E64AC9 /* Pods-HJWeather_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HJWeather_Tests.debug.xcconfig"; path = "Target Support Files/Pods-HJWeather_Tests/Pods-HJWeather_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		247F6948B7DA0705C5ACC83C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				10F2A8B8251290DB003E2244 /* weather_location.csv */,
 				1D62D266889CBD800AC915D0 /* HJWeather.podspec */,
 				10F011CD892349E9A8498BCA /* README.md */,
 				247F6948B7DA0705C5ACC83C /* LICENSE */,
@@ -281,6 +284,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				10F2A8B9251290DB003E2244 /* weather_location.csv in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

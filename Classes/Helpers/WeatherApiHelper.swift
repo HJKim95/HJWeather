@@ -422,8 +422,8 @@ public class WeatherApiHelper {
         }
     }
     
-    public func getTomorrowWeather(future: Bool, completed: @escaping (_ tomorrowInfo: [futureWeatherModel]) -> Void) {
-        getApiData(base: makeTomorrowAPIParameter(), object: .tomorrow) { (dataArray) in
+    public func getTomorrowWeather(future: Bool, location: String, completed: @escaping (_ tomorrowInfo: [futureWeatherModel]) -> Void) {
+        getApiData(base: makeTomorrowAPIParameter(location: location), object: .tomorrow) { (dataArray) in
             var nearFutureWeatherInfo = [futureWeatherModel]()
             var range = 0..<dataArray.count
             if future {
@@ -501,8 +501,8 @@ public class WeatherApiHelper {
         }
     }
     
-    public func getForecastWeather(completed: @escaping (_ forecastInfo: [futureWeatherModel]) -> Void) {
-        getApiData(base: makeForecastAPIParameter(object: "weather"), object: .forecastWeather) { [weak self] (dataArray) in
+    public func getForecastWeather(location: String, completed: @escaping (_ forecastInfo: [futureWeatherModel]) -> Void) {
+        getApiData(base: makeForecastAPIParameter(location: location, object: "weather"), object: .forecastWeather) { [weak self] (dataArray) in
             var futureWeatherInfo = [futureWeatherModel]()
             if dataArray.count > 0 {
                 let weatherInfo: Dictionary = dataArray[0].dictionaryObject ?? ["":""]
@@ -534,7 +534,7 @@ public class WeatherApiHelper {
                     futureWeatherInfo.append(futureModel)
                 }
                 
-                self?.getApiData(base: self?.makeForecastAPIParameter(object: "temp") ?? ["":""], object: .forecastTemp) { (dataArray) in
+                self?.getApiData(base: self?.makeForecastAPIParameter(location: location, object: "temp") ?? ["":""], object: .forecastTemp) { (dataArray) in
                     if dataArray.count > 0 {
                         guard let tempInfo: Dictionary = dataArray[0].dictionaryObject else {return}
                         let tempMinCode = ["taMin3","taMin4","taMin5","taMin6","taMin7","taMin8","taMin9","taMin10"]
@@ -555,8 +555,8 @@ public class WeatherApiHelper {
         }
     }
     
-    public func getForecastTemp(completed: @escaping (_ forecastInfo: [String:Array<Any>]) -> Void) {
-        getApiData(base: makeForecastAPIParameter(object: "temp"), object: .forecastTemp) { (dataArray) in
+    public func getForecastTemp(location: String, completed: @escaping (_ forecastInfo: [String:Array<Any>]) -> Void) {
+        getApiData(base: makeForecastAPIParameter(location: location, object: "temp"), object: .forecastTemp) { (dataArray) in
             if dataArray.count > 0 {
                 let info: Dictionary = dataArray[0].dictionaryObject ?? ["":""]
                 let tempMinCode = ["taMin3","taMin4","taMin5","taMin6","taMin7","taMin8","taMin9","taMin10"]
@@ -708,9 +708,8 @@ public class WeatherApiHelper {
     
     
     // 내일, 모레 오전 오후 날씨 받아오기 위함.
-    public func makeTomorrowAPIParameter() -> [String:String] {
-        // 추후 위치에 따라 regID를 바꿔야함.
-        let regId = "11B10101"
+    public func makeTomorrowAPIParameter(location: String) -> [String:String] {
+        let regId = getCSVData_region(city: location)
         let appid = WeatherData.appKey
         let parameter = ["ServiceKey":appid.removingPercentEncoding!,
                          "pageNo": "1",
@@ -720,13 +719,15 @@ public class WeatherApiHelper {
         return parameter
     }
     
-    public func makeForecastAPIParameter(object: String) -> [String:String] {
+    public func makeForecastAPIParameter(location: String, object: String) -> [String:String] {
         var regId = ""
         if object == "weather" {
-            regId = "11B00000"
+            let imsiReg = getCSVData_region(city: location)
+            let getPreReg = Array(imsiReg)[0...2]
+            regId = String(getPreReg) + "00000"
         }
         else if object == "temp" {
-            regId = "11B10101"
+            regId = getCSVData_region(city: location)
         }
         let timePar = getTimePar()
         let appid = WeatherData.appKey
@@ -842,6 +843,56 @@ public class WeatherApiHelper {
         case today
         case tomorrow
         case after_tomorrow
+    }
+    
+    //MARK: - CSV 관련
+    private func getCSVData_region(city: String) -> String {
+        guard var data = readDataFromCSV(fileName: "weather_location", fileType: "csv") else {return "12312321"}
+        data = cleanRows(file: data)
+        let csvRows = csv(data: data)
+        let location = city
+        for row in csvRows {
+            if row[2].contains(location) || location.contains(row[2]) {
+                return row[3]
+            }
+        }
+        return ""
+    }
+    
+    private func readDataFromCSV(fileName:String, fileType: String)-> String!{
+        
+        guard let filepath = Bundle.main.path(forResource: fileName, ofType: fileType)
+            else {
+                return nil
+        }
+        do {
+            var contents = try String(contentsOfFile: filepath, encoding: .utf8)
+            contents = cleanRows(file: contents)
+            return contents
+        } catch {
+            print("File Read Error for file \(filepath)")
+            return nil
+        }
+    }
+
+
+    private func cleanRows(file:String)->String{
+        var cleanFile = file
+        cleanFile = cleanFile.replacingOccurrences(of: "\r", with: "\n")
+        cleanFile = cleanFile.replacingOccurrences(of: "\n\n", with: "\n")
+        //        cleanFile = cleanFile.replacingOccurrences(of: ";;", with: "")
+        //        cleanFile = cleanFile.replacingOccurrences(of: ";\n", with: "")
+        return cleanFile
+    }
+    
+    private func csv(data: String) -> [[String]] {
+        var result: [[String]] = []
+        let rows = data.components(separatedBy: "\n")
+        for row in rows {
+            let columns = row.components(separatedBy: ",")
+            result.append(columns)
+        }
+        return result
     }
     
     

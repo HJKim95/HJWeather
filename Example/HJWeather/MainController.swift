@@ -190,18 +190,18 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     var ampmWeatherInfo = [futureWeatherModel]()
-    fileprivate func getAmPmWeather(future: Bool) {
-        WeatherApiHelper.shared.getTomorrowWeather(future: future) { [weak self] (weather) in
+    fileprivate func getAmPmWeather(location: String,future: Bool) {
+        WeatherApiHelper.shared.getTomorrowWeather(future: future, location: location) { [weak self] (weather) in
             self?.ampmWeatherInfo = weather
         }
     }
     
     var futureWeatherInfo = [futureWeatherModel]()
     
-    fileprivate func getFutureWeather() {
-        WeatherApiHelper.shared.getTomorrowWeather(future: true) { [weak self] (nearWeather) in
+    fileprivate func getFutureWeather(location: String) {
+        WeatherApiHelper.shared.getTomorrowWeather(future: true, location: location) { [weak self] (nearWeather) in
             self?.futureWeatherInfo = nearWeather
-            WeatherApiHelper.shared.getForecastWeather { [weak self] (futureWeather) in
+            WeatherApiHelper.shared.getForecastWeather(location: location) { [weak self] (futureWeather) in
                 self?.futureWeatherInfo += futureWeather
                 self?.weatherCollectionView.reloadData()
             }
@@ -276,9 +276,7 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if !didUpdated {
             getNowWeather(lat: lat, long: long)
             getWeatherData(lat: lat, long: long)
-            getAmPmWeather(future: false)
-
-            getFutureWeather()
+            
 
             let geocoder = CLGeocoder()
             geocoder.reverseGeocodeLocation(userLocation) { [weak self] (placemarks, error) in
@@ -295,6 +293,10 @@ class MainController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     guard let city = placemark.administrativeArea else {return}
                     guard let locality = placemark.locality else {return}
                     guard let locName = placemark.name else {return}
+
+                    self?.getAmPmWeather(location: city, future: false)
+                    self?.getFutureWeather(location: city)
+                    
                     self?.locationLabel.text = "  \(city) \(locality) \(locName)"
                     self?.getCurrentDustData(cityName: city, subLocalName: locality)
                     self?.getTomorrowDustData()
