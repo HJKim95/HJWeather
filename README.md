@@ -26,13 +26,18 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 3. Make sure ***Copy items if needed*** is checked.
 
 ### Cocoapods
-
 HJLayout is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'HJWeather'
 ```
+
+### MUST READ
+After downloaded HJWeather, you should drag file ***[weather_location.csv](#)*** into your project.
+***[weather_location.csv](#)*** is in the ***[Example](#)*** folder.
+***[weather_location.csv](#)*** helps you to cover Korea all regions.
+
 
 ## Tutorial
 * [Getting started with TodayWeather](#getting_started_today)
