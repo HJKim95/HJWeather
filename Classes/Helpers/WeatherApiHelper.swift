@@ -709,7 +709,12 @@ public class WeatherApiHelper {
     
     // 내일, 모레 오전 오후 날씨 받아오기 위함.
     public func makeTomorrowAPIParameter(location: String) -> [String:String] {
-        let regId = getCSVData_region(city: location)
+        var regId = getCSVData_region(city: location)
+        if regId == "" {
+            regId = "11B10101"
+            print("====ERROR====\nweather_location.csv caused error")
+        }
+    
         let appid = WeatherData.appKey
         let parameter = ["ServiceKey":appid.removingPercentEncoding!,
                          "pageNo": "1",
@@ -722,12 +727,20 @@ public class WeatherApiHelper {
     public func makeForecastAPIParameter(location: String, object: String) -> [String:String] {
         var regId = ""
         if object == "weather" {
-            let imsiReg = getCSVData_region(city: location)
+            var imsiReg = getCSVData_region(city: location)
+            if imsiReg == "" {
+                imsiReg = "11B10101"
+                print("====ERROR====\nweather_location.csv caused error")
+            }
             let getPreReg = Array(imsiReg)[0...2]
             regId = String(getPreReg) + "00000"
         }
         else if object == "temp" {
             regId = getCSVData_region(city: location)
+            if regId == "" {
+                regId = "11B10101"
+                print("====ERROR====\nweather_location.csv caused error")
+            }
         }
         let timePar = getTimePar()
         let appid = WeatherData.appKey
@@ -847,7 +860,7 @@ public class WeatherApiHelper {
     
     //MARK: - CSV 관련
     private func getCSVData_region(city: String) -> String {
-        guard var data = readDataFromCSV(fileName: "weather_location", fileType: "csv") else {return "12312321"}
+        guard var data = readDataFromCSV(fileName: "weather_location", fileType: "csv") else {return ""}
         data = cleanRows(file: data)
         let csvRows = csv(data: data)
         let location = city
